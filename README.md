@@ -14,9 +14,9 @@
 
 ### 第二阶段：现代特性学习
 - [x] Plan Mode（计划模式）
-- [ ] Memory系统（记忆系统）
-- [ ] Context Compression（上下文压缩）
-- [ ] Multi-agent管理
+- [x] Memory系统（记忆系统）
+- [x] Context Compression（上下文压缩）
+- [x] Multi-agent管理
 - [ ] Background Tasks（后台任务）
 - [ ] Skills/Plugins系统
 - [ ] Loop/Workflow控制
@@ -34,35 +34,40 @@ AI-Agent-Study/
 ├── docs/                        # 文档目录
 │   ├── INDEX.md                 # 文档索引
 │   ├── tutorials/               # 教程和指南
-│   │   ├── lidang_tutorial.md   # 原始教程（峰哥AI学习视频文字版）
-│   │   ├── learning_guide.md    # 完整学习路径指南
-│   │   ├── modern_agent_features.md  # 现代Agent特性详解
-│   │   ├── one_week_plan.md     # 一周速成计划
-│   │   ├── quick_start.md       # 快速开始指南
-│   │   └── summary.md           # 学习成果总结
+│   │   ├── README.md            # 教程总览
+│   │   ├── 01-plan-mode/        # ✅ Plan Mode
+│   │   ├── 02-memory-system/    # ✅ Memory系统
+│   │   ├── 03-context-compression/ # ✅ 上下文压缩
+│   │   ├── 04-multi-agent/      # ✅ Multi-agent管理
+│   │   ├── 05-background-tasks/ # 📅 后台任务
+│   │   ├── 06-plugins/          # 📅 插件系统
+│   │   ├── 07-loop-control/     # 📅 循环控制
+│   │   ├── 08-sandbox/          # 📅 沙箱环境
+│   │   ├── 09-mcp/              # 📅 MCP配置
+│   │   ├── 10-tui/              # 📅 TUI优化
+│   │   └── 11-visualization/    # 📅 可视化
 │   ├── plan-mode/               # Plan Mode 专题
-│   │   ├── analysis.md          # Codex Plan Mode 详细分析
-│   │   ├── practice.md          # 实践实现指南
-│   │   ├── faq.md               # 常见问题解答
-│   │   ├── implementation_guide.md  # 简单实现计划
-│   │   └── complete.md          # 完成指南
 │   └── git/                     # Git 相关
-│       ├── setup_guide.md       # Git设置指南
-│       └── setup.ps1            # Git设置脚本
 ├── minimal_agent/               # Agent 代码
 │   ├── agent.js                 # JavaScript版本（推荐）
+│   ├── agent_v2.js              # v2.0主程序（含Memory）
 │   ├── agent.py                 # Python版本
-│   ├── plan_mode.js             # Plan Mode实现
-│   ├── test_plan_mode.js        # Plan Mode测试脚本
-│   ├── agent_analysis.md        # Agent解读教材
-│   └── README.md                # Agent说明文档
+│   ├── memory.js                # Memory系统
+│   ├── plan_mode.js             # Plan Mode基础版
+│   ├── plan_mode_enhanced.js    # Plan Mode增强版
+│   ├── multi_agent_system.js    # Multi-agent系统
+│   ├── message_queue.js         # 消息队列系统
+│   ├── task_scheduler.js        # 任务调度器
+│   ├── multi_agent_collaboration.js # Multi-agent协作示例
+│   ├── demos/                   # 演示文件
+│   │   └── demo_multi_agent.js  # Multi-agent演示
+│   └── tests/                   # 测试文件
+│       └── test_multi_agent.js  # Multi-agent测试
 └── .vscode/                     # VS Code 配置
     └── settings.json
 ```
 
 ## 🚀 快速开始
-### 学习笔记
-- **[AI Agent 学习笔记](AI_AGENT_STUDY_NOTES.md)** - 两天学习内容的完整总结，适合复盘和复习
 
 ### 1. 运行最小Agent
 
@@ -71,7 +76,29 @@ cd minimal_agent
 node agent.js
 ```
 
-### 2. 尝试基本命令
+### 2. 运行Multi-agent系统
+
+```bash
+cd minimal_agent
+
+# 基础Multi-agent系统
+node multi_agent_system.js
+
+# 完整协作示例
+node multi_agent_collaboration.js
+
+# Multi-agent演示
+node demos/demo_multi_agent.js
+```
+
+### 3. 运行测试
+
+```bash
+cd minimal_agent/tests
+node test_multi_agent.js
+```
+
+### 4. 尝试基本命令
 
 ```
 🤖 Agent> exec echo "Hello, Agent!"
@@ -95,6 +122,10 @@ node agent.js
 - **[现代Agent特性](docs/tutorials/modern_agent_features.md)** - 现代Agent特性详解
 - **[一周速成计划](docs/tutorials/one_week_plan.md)** - 一周速成计划
 
+### Multi-agent相关
+- **[Multi-agent管理指南](docs/tutorials/04-multi-agent/multi_agent_management_guide.md)** - 完整教程
+- **[学习总结](docs/tutorials/04-multi-agent/multi_agent_learning_summary.md)** - 学习成果
+
 ### 快速入门
 - **[快速开始](docs/tutorials/quick_start.md)** - 快速开始指南
 - **[学习总结](docs/tutorials/summary.md)** - 学习成果总结
@@ -109,7 +140,8 @@ node agent.js
 1. ✅ 理解Agent的核心工作原理
 2. ✅ 实现基本的Coding Agent
 3. ✅ 掌握现代Agent的关键特性（Plan Mode）
-4. ✅ 具备进一步深入学习的基础
+4. ✅ 理解Multi-agent系统的架构和实现
+5. ✅ 具备进一步深入学习的基础
 
 ## 💡 教程关键点
 
@@ -130,6 +162,27 @@ node agent.js
 > "从马车蒸汽汽车开始，你已经实现了第一节课。你要和看一看和今天最好的这些开源的实现你有哪些差距。"
 
 **建议**：先完成基础，再研究高级实现
+
+## 🚀 Multi-agent系统特性
+
+### 核心组件
+1. **Agent系统** - 基础Agent实现和管理
+2. **消息队列** - Agent间通信机制
+3. **任务调度器** - 智能任务分配和调度
+4. **协作系统** - 完整的多Agent协作示例
+
+### 架构模式
+- **主从模式** - Master负责协调，Slave执行任务
+- **对等模式** - 所有Agent地位平等，自主协商
+- **层次模式** - 多层级管理结构
+- **黑板模式** - 共享数据空间，Agent自主读写
+
+### 学习成果
+- 理解Multi-agent系统的必要性
+- 掌握不同架构模式的特点
+- 实现基础的消息通信系统
+- 创建智能的任务调度器
+- 构建完整的协作示例
 
 ## 📚 推荐资源
 
@@ -156,4 +209,3 @@ MIT License
 ---
 
 *记住：这是你的AI Agent学习之旅的第一步。完成它，你就入门了！*
-

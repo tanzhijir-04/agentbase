@@ -33,3 +33,5 @@ build/
 # Temporary
 *.tmp
 *.temp
+# Agent config.codex/
+.agents/

@@ -1,0 +1,9 @@
+{
+  "name": "text-processing",
+  "displayName": "文本处理",
+  "version": "1.0.0",
+  "description": "文本处理插件：字符统计、大小写转换等文本操作工具",
+  "author": "AI-Agent-Study",
+  "skills": ["char-counter", "case-converter"],
+  "entry": "./skills"
+}

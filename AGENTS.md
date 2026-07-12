@@ -1,173 +1,107 @@
-# Repository Guidelines
+# 📝 AI Agent 学习项目 - 贡献者指南
 
-## Project Structure & Module Organization
-
-This repository contains AI Agent learning resources and tutorials, organized into a clear directory structure.
-
-```
-AI-Agent-Study/
-├── README.md                    # Project homepage
-├── AGENTS.md                    # This contributor guide
-├── docs/                        # Documentation directory
-│   ├── INDEX.md                 # Documentation index
-│   ├── tutorials/               # Tutorials and guides
-│   ├── plan-mode/               # Plan Mode专题
-│   └── git/                     # Git相关文档
-├── minimal_agent/               # Agent code implementation
-│   ├── agent.js                 # JavaScript version (recommended)
-│   ├── agent.py                 # Python version
-│   ├── plan_mode.js             # Plan Mode implementation
-│   └── test_plan_mode.js        # Plan Mode test script
-└── .vscode/                     # VS Code configuration
-```
-
-## Content Guidelines
-
-### Adding New Resources
-
-1. **Determine the category:**
-   - **Tutorials**: Learning guides, feature explanations, tutorials → `docs/tutorials/`
-   - **Plan Mode**: Plan Mode related documents → `docs/plan-mode/`
-   - **Git**: Git setup and configuration → `docs/git/`
-   - **Agent Code**: Implementation files → `minimal_agent/`
-
-2. **Follow naming conventions:**
-   - Use lowercase with underscores: `my_topic_guide.md`
-   - Include date/version when relevant: `tutorial_2026.md`
-   - Use descriptive names indicating content purpose
-
-3. **Update documentation:**
-   - Update `docs/INDEX.md` if adding new categories
-   - Update this `AGENTS.md` if adding new resource types
-   - Update `README.md` if changes affect project structure
-
-### Content Quality Standards
-
-- Ensure content is accurate and up-to-date
-- Include practical examples and code snippets when relevant
-- Structure content with clear headings and logical flow
-- Keep explanations accessible to beginners while maintaining technical accuracy
-- Use proper Markdown formatting
-
-## File Naming Conventions
-
-### General Rules
-- Use lowercase with underscores for multi-word filenames: `my_topic_guide.md`
-- Include date or version indicators when relevant: `tutorial_2026.md`
-- Use descriptive names that indicate content purpose
-- Avoid special characters except hyphens and underscores
-
-### Category-Specific Naming
-
-#### Tutorials (`docs/tutorials/`)
-- `learning_guide.md` - Learning path guide
-- `modern_agent_features.md` - Modern agent features
-- `one_week_plan.md` - One week plan
-- `quick_start.md` - Quick start guide
-- `summary.md` - Learning summary
-- `lidang_tutorial.md` - Original tutorial
-
-#### Plan Mode (`docs/plan-mode/`)
-- `analysis.md` - Codex Plan Mode analysis
-- `practice.md` - Practice implementation guide
-- `faq.md` - Frequently asked questions
-- `implementation_guide.md` - Implementation plan
-- `complete.md` - Completion guide
-
-#### Git (`docs/git/`)
-- `setup_guide.md` - Git setup guide
-- `setup.ps1` - Git setup script
-
-#### Agent Code (`minimal_agent/`)
-- `agent.js` - Main JavaScript implementation
-- `agent.py` - Python implementation
-- `plan_mode.js` - Plan Mode implementation
-- `test_plan_mode.js` - Test script
-- `agent_analysis.md` - Agent analysis document
-
-## Contribution Process
-
-### Adding Content
-1. Create new content following the naming conventions above
-2. Place files in the appropriate directory based on category
-3. Ensure content is well-structured with proper Markdown formatting
-4. Update `docs/INDEX.md` if adding new categories
-5. Update this `AGENTS.md` if adding new resource types
-6. Update `README.md` if changes affect project structure
-
-### Content Review
-- Verify technical accuracy of all code examples
-- Ensure proper attribution for external references
-- Check for consistent formatting and style
-- Test any code examples to ensure they work correctly
-
-### Documentation Updates
-- Keep documentation synchronized with code changes
-- Update file links when moving or renaming files
-- Ensure all cross-references are valid
-
-## Directory Structure Details
-
-### `docs/` - Documentation Root
-Contains all documentation files organized by category.
-
-### `docs/tutorials/` - Tutorials and Guides
-Learning materials, guides, and educational content.
-
-### `docs/plan-mode/` - Plan Mode专题
-All Plan Mode related documentation and guides.
-
-### `docs/git/` - Git Related
-Git setup guides and configuration scripts.
-
-### `minimal_agent/` - Agent Code
-Source code and implementation files for the AI Agent.
-
-### `.vscode/` - VS Code Configuration
-VS Code workspace settings and configurations.
-
-## Recommended Tools
-
-- **Markdown Editor**: VS Code, Typora, or any Markdown-capable editor
-- **Content Validation**: Preview Markdown rendering before committing
-- **Code Testing**: Test all code examples before documenting
-- **Link Checking**: Verify all internal and external links work
-
-## Commit Guidelines
-
-- Use descriptive commit messages: `Add tutorial on multi-agent systems`
-- Reference specific sections when updating existing content
-- Keep commits focused on single logical changes
-- Include file path in commit message when moving/renaming files
-
-## Current Resources
-
-### Tutorials
-- Comprehensive guide on AI Agent development
-- Modern Agent features learning guide
-- One week intensive learning plan
-- Quick start guide for beginners
-
-### Plan Mode
-- Codex Plan Mode detailed analysis
-- Practice implementation guide
-- Frequently asked questions
-- Implementation plan and completion guide
-
-### Agent Code
-- Minimal Coding Agent implementation (JavaScript & Python)
-- Plan Mode implementation
-- Test scripts and examples
-
-## Future Expansion
-
-This repository is designed to grow with contributions including:
-- Additional tutorials on specific agent frameworks
-- Code examples and implementations
-- Comparative analysis of different agent approaches
-- Best practices and design patterns
-- Documentation for new features and capabilities
+> **更新日期**: 2026年7月12日
 
 ---
 
-*For questions or suggestions about contributing, please open an issue or submit a pull request.*
+## 📁 项目结构
+
+```
+AI-Agent-Study/
+├── README.md                           # 项目主页
+├── AGENTS.md                           # 本文件（贡献者指南）
+├── docs/                               # 文档目录
+│   ├── INDEX.md                        # 文档索引
+│   ├── tutorials/                      # 教程和学习指南
+│   │   ├── README.md                   # 教程总览
+│   │   ├── 01-plan-mode/               # ✅ Plan Mode
+│   │   ├── 02-memory-system/           # ✅ Memory系统
+│   │   ├── 03-context-compression/     # ✅ 上下文压缩
+│   │   ├── 04-multi-agent/             # ✅ Multi-agent管理
+│   │   ├── 05-background-tasks/        # 📅 后台任务
+│   │   ├── 06-plugins/                 # 📅 插件系统
+│   │   ├── 07-loop-control/            # 📅 循环控制
+│   │   ├── 08-sandbox/                 # 📅 沙箱环境
+│   │   ├── 09-mcp/                     # 📅 MCP配置
+│   │   ├── 10-tui/                     # 📅 TUI优化
+│   │   └── 11-visualization/           # 📅 可视化
+│   ├── plan-mode/                      # Plan Mode专题
+│   └── git/                            # Git相关
+└── minimal_agent/                      # Agent代码实现
+    ├── agent_v2.js                     # v2.0主程序（含Memory）
+    ├── agent.js                        # v1.0基础版
+    ├── agent.py                        # Python版本
+    ├── memory.js                       # Memory系统
+    ├── memory.json                     # 记忆存储文件
+    ├── plan_mode.js                    # Plan Mode基础版
+    ├── plan_mode_enhanced.js           # Plan Mode增强版
+    ├── multi_agent_system.js           # Multi-agent系统
+    ├── message_queue.js                # 消息队列系统
+    ├── task_scheduler.js               # 任务调度器
+    ├── multi_agent_collaboration.js    # Multi-agent协作示例
+    ├── agent_analysis.md               # Agent分析文档
+    ├── AGENT_V2_README.md              # v2.0功能说明
+    ├── README.md                       # Agent目录说明
+    ├── demos/                          # 演示文件
+    │   ├── demo_regex.js               # 正则表达式演示
+    │   └── demo_language_detection.js  # 语言检测演示
+    └── tests/                          # 测试文件
+        ├── test_agent_v2.js            # v2.0测试
+        ├── test_memory.js              # Memory测试
+        ├── test_plan_mode.js           # Plan Mode测试
+        ├── test_enhanced_plan_mode.js  # Plan Mode增强版测试
+        └── test_multi_agent.js         # Multi-agent系统测试
+```
+
+---
+
+## 📋 内容规范
+
+### 添加新资源
+
+1. **确定分类**：
+   - 教程 → `docs/tutorials/`
+   - Plan Mode → `docs/plan-mode/`
+   - Agent代码 → `minimal_agent/`
+   - 演示文件 → `minimal_agent/demos/`
+   - 测试文件 → `minimal_agent/tests/`
+
+2. **命名规范**：
+   - 使用小写字母和下划线
+   - 描述性名称：`memory_system_guide.md`
+   - 日期版本：`tutorial_2026.md`
+
+3. **更新索引**：
+   - 添加新文件后更新 `docs/INDEX.md`
+   - 重大变更更新本文件 `AGENTS.md`
+
+---
+
+## 🎯 学习进度
+
+### 已完成
+
+- [x] Day 1 (7月10日): 环境搭建 + 最小Agent实现
+- [x] Day 2 (7月11日): Plan Mode学习和实现
+- [x] Day 3 (7月12日): Memory系统 + 语言识别
+- [x] Day 4 (7月12日): Multi-agent管理 + 上下文压缩
+- [x] Day 6 (7月12日): Skills/Plugins系统
+
+### 进行中
+
+- [ ] Day 5: Background Tasks
+- [ ] Day 7: TUI + 可视化 + 综合实践
+
+---
+
+## 💡 贡献流程
+
+1. 创建内容遵循命名规范
+2. 放置到正确目录
+3. 确保Markdown格式正确
+4. 更新 `docs/INDEX.md`
+5. 提交前测试代码示例
+
+---
+
+*指南更新时间：2026年7月12日*

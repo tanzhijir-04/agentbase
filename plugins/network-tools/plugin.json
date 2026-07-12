@@ -1,0 +1,9 @@
+{
+  "name": "network-tools",
+  "displayName": "网络工具",
+  "version": "1.0.0",
+  "description": "网络工具插件：HTTP请求和URL解析功能",
+  "author": "AI-Agent-Study",
+  "skills": ["http-request", "url-parser"],
+  "entry": "./skills"
+}

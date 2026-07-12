@@ -1,119 +1,94 @@
 # 📚 文档索引
 
-> AI-Agent-Study 仓库的完整文档导航
+> **更新日期**: 2026年7月12日
+
+---
 
 ## 📁 目录结构
 
 ```
 docs/
-├── INDEX.md                 # 本文件 - 文档索引
-├── tutorials/               # 教程和指南
-├── plan-mode/               # Plan Mode 专题
-└── git/                     # Git 相关
+├── INDEX.md                              # 本文件
+├── tutorials/                            # 教程目录
+│   ├── README.md                         # 教程总览 ⭐
+│   ├── 01-plan-mode/                     # ✅ Plan Mode
+│   ├── 02-memory-system/                 # ✅ Memory系统
+│   ├── 03-context-compression/           # ✅ 上下文压缩
+│   ├── 04-multi-agent/                   # ✅ Multi-agent
+│   ├── 05-background-tasks/              # 📅 后台任务
+│   ├── 06-plugins/                       # 📅 插件系统
+│   ├── 07-loop-control/                  # 📅 循环控制
+│   ├── 08-sandbox/                       # 📅 沙箱环境
+│   ├── 09-mcp/                           # 📅 MCP配置
+│   ├── 10-tui/                           # 📅 TUI优化
+│   └── 11-visualization/                 # 📅 可视化
+├── plan-mode/                            # Plan Mode专题
+└── git/                                  # Git相关
 ```
-
-## 🎯 快速导航
-
-### 按学习阶段
-
-#### 🟢 初学者（第一阶段）
-1. **[快速开始](tutorials/quick_start.md)** - 5分钟快速上手
-2. **[原始教程](tutorials/lidang_tutorial.md)** - 完整教程视频文字版
-3. **[学习总结](tutorials/summary.md)** - 学习成果回顾
-
-#### 🟡 进阶者（第二阶段）
-1. **[学习路径指南](tutorials/learning_guide.md)** - 完整学习路径
-2. **[现代Agent特性](tutorials/modern_agent_features.md)** - 深入理解现代特性
-3. **[一周速成计划](tutorials/one_week_plan.md)** - 高效学习计划
-
-#### 🔴 高级者（第三阶段）
-1. **[Plan Mode分析](plan-mode/analysis.md)** - 深入分析Plan Mode实现
-2. **[实践实现指南](plan-mode/practice.md)** - 动手实践Plan Mode
-3. **[实现计划](plan-mode/implementation_guide.md)** - 详细实现方案
-
-### 按主题分类
-
-#### 📖 教程和指南
-| 文档 | 描述 | 适合人群 |
-|------|------|----------|
-| [快速开始](tutorials/quick_start.md) | 5分钟快速上手 | 初学者 |
-| [原始教程](tutorials/lidang_tutorial.md) | 完整教程视频文字版 | 所有人 |
-| [学习路径指南](tutorials/learning_guide.md) | 完整学习路径 | 进阶者 |
-| [现代Agent特性](tutorials/modern_agent_features.md) | 深入理解现代特性 | 进阶者 |
-| [一周速成计划](tutorials/one_week_plan.md) | 高效学习计划 | 进阶者 |
-| [学习总结](tutorials/summary.md) | 学习成果回顾 | 所有人 |
-
-#### 🎯 Plan Mode 专题
-| 文档 | 描述 | 适合人群 |
-|------|------|----------|
-| [分析文档](plan-mode/analysis.md) | Codex Plan Mode详细分析 | 高级者 |
-| [实践指南](plan-mode/practice.md) | 动手实践Plan Mode | 高级者 |
-| [常见问题](plan-mode/faq.md) | 常见问题解答 | 所有人 |
-| [实现计划](plan-mode/implementation_guide.md) | 详细实现方案 | 高级者 |
-| [完成指南](plan-mode/complete.md) | 完成后的使用指南 | 所有人 |
-
-#### 🔧 Git 相关
-| 文档 | 描述 | 适合人群 |
-|------|------|----------|
-| [设置指南](git/setup_guide.md) | Git设置详细指南 | 所有人 |
-| [设置脚本](git/setup.ps1) | 自动化设置脚本 | 所有人 |
-
-## 🗺️ 学习路径建议
-
-### 路径1：快速入门（1天）
-```
-快速开始 → 运行Agent → 尝试基本命令 → 完成！
-```
-
-### 路径2：系统学习（1周）
-```
-原始教程 → 学习路径指南 → 现代Agent特性 → 一周速成计划 → 学习总结
-```
-
-### 路径3：深入研究（2周）
-```
-系统学习 → Plan Mode分析 → 实践指南 → 实现计划 → 完成指南
-```
-
-## 📋 文档统计
-
-- **教程文档**: 6篇
-- **Plan Mode文档**: 5篇
-- **Git文档**: 2篇
-- **总计**: 13篇文档
-
-## 🔍 按文件类型
-
-### Markdown文档 (.md)
-- 所有学习资料和指南
-- 代码示例和说明
-- 项目文档和说明
-
-### 脚本文件 (.ps1)
-- `git/setup.ps1` - Git自动化设置脚本
-
-## 📞 需要帮助？
-
-### 常见问题
-- 查看 [Plan Mode常见问题](plan-mode/faq.md)
-- 查看 [快速开始指南](tutorials/quick_start.md)
-
-### 学习建议
-- 从 [快速开始](tutorials/quick_start.md) 开始
-- 按照 [学习路径指南](tutorials/learning_guide.md) 系统学习
-- 参考 [现代Agent特性](tutorials/modern_agent_features.md) 深入理解
-
-### 贡献文档
-- 查看 [AGENTS.md](../AGENTS.md) 了解贡献指南
-- 遵循文件命名规范
-- 更新本索引文件
-
-## 📝 更新记录
-
-- **2026-07-11**: 初始版本，包含13篇文档
-- 文档按主题分类，便于导航
-- 添加学习路径建议
 
 ---
 
-*最后更新：2026年7月11日*
+## 🎯 快速导航
+
+### 按章节查找
+
+| # | 特性 | 状态 | 目录 |
+|---|------|------|------|
+| 01 | Plan Mode | ✅ 完成 | tutorials/01-plan-mode/ |
+| 02 | Memory系统 | ✅ 完成 | tutorials/02-memory-system/ |
+| 03 | Context Compression | ✅ 完成 | tutorials/03-context-compression/ |
+| 04 | Multi-agent | ✅ 完成 | tutorials/04-multi-agent/ |
+| 05 | Background Tasks | 📅 待学习 | tutorials/05-background-tasks/ |
+| 06 | Skills/Plugins | ✅ 完成 | tutorials/06-plugins/ |
+| 07 | Loop/Workflow控制 | 📅 待学习 | tutorials/07-loop-control/ |
+| 08 | Sandbox环境 | 📅 待学习 | tutorials/08-sandbox/ |
+| 09 | MCP配置 | 📅 待学习 | tutorials/09-mcp/ |
+| 10 | TUI优化 | 📅 待学习 | tutorials/10-tui/ |
+| 11 | 可视化 | 📅 待学习 | tutorials/11-visualization/ |
+
+---
+
+## 📖 推荐阅读
+
+### 入门
+
+1. tutorials/README.md - 教程总览
+2. tutorials/01-plan-mode/README.md - Plan Mode
+
+### 进阶
+
+1. tutorials/02-memory-system/README.md - Memory系统
+2. tutorials/03-context-compression/README.md - 上下文压缩
+3. tutorials/04-multi-agent/README.md - Multi-agent管理
+
+---
+
+## 🚀 快速开始
+
+### 1. 查看教程总览
+```bash
+cat tutorials/README.md
+```
+
+### 2. 运行示例代码
+```bash
+# 运行Multi-agent系统示例
+node minimal_agent/multi_agent_system.js
+
+# 运行Multi-agent协作示例
+node minimal_agent/multi_agent_collaboration.js
+
+# 运行测试
+node minimal_agent/tests/test_multi_agent.js
+
+# 运行Skills/Plugins演示
+node minimal_agent/demos/demo_skills_plugins.js
+
+# 运行Skills/Plugins测试
+node minimal_agent/tests/test_skill_system.js
+node minimal_agent/tests/test_plugin_system.js
+```
+
+---
+
+*索引更新时间：2026年7月12日*

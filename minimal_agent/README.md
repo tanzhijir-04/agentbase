@@ -1,166 +1,220 @@
-# Minimal Coding Agent - 第一节课
+# Minimal Coding Agent - AI Agent学习项目
 
-根据AI Agent教程要求，这是每个学习者的**第一节课**：手写一个最小的Coding Agent。
+这是AI Agent学习项目的代码实现目录，包含从基础Agent到Multi-agent系统的完整学习路径。
 
-## 🎯 教程要求
-
-教程明确指出：
-> "你要自己手写一个自己的一个minimum的coding agent，自己最小的一个agent要让他来写出来，而且要跑出来。"
-
-> "最小版本的SW agent是什么？是每个大学生，计算机系大学生AI专业大学生的第一节课。"
-
-## 🏗️ 最小Agent的核心功能
-
-教程强调，最小的agent只需要两个核心功能：
-
-### 1. Terminal执行
-```javascript
-// 执行shell命令并获取输出
-const { success, output } = agent.executeCommand("ls -la");
-```
-
-### 2. 文件IO读写
-```javascript
-// 读取文件
-const { success, content } = agent.readFile("test.txt");
-
-// 写入文件
-const { success, message } = agent.writeFile("output.txt", "Hello World");
-```
-
-## 🚀 如何使用
-
-### 运行Agent（JavaScript版本）
-```bash
-cd minimal_agent
-node agent.js
-```
-
-### 运行Agent（Python版本 - 需要Python环境）
-```bash
-cd minimal_agent
-python agent.py
-```
-
-### 交互命令
-
-| 命令 | 说明 | 示例 |
-|------|------|------|
-| `exec <command>` | 执行shell命令 | `exec ls -la` |
-| `read <file>` | 读取文件内容 | `read test.txt` |
-| `write <file>` | 写入文件内容 | `write output.txt` |
-| `history` | 查看操作历史 | `history` |
-| `quit` | 退出程序 | `quit` |
-
-### 示例会话
-
-```
-🤖 Agent> exec echo "Hello, Agent!"
-✅ 成功！
-Hello, Agent!
-
-🤖 Agent> write test.txt
-请输入内容（输入END结束）：
-This is a test file.
-Created by Minimal Agent.
-END
-✅ Successfully wrote to test.txt
-
-🤖 Agent> read test.txt
-✅ 文件内容：
-This is a test file.
-Created by Minimal Agent.
-
-🤖 Agent> exec dir
-✅ 成功！
- Volume in drive C is Windows
- Directory of C:\Users\20300\Desktop\AI-Agent-Study\minimal_agent
-
-2026/07/10  19:42    <DIR>          .
-2026/07/10  19:42    <DIR>          ..
-2026/07/10  19:45             1,234 agent.js
-2026/07/10  19:42             2,345 agent.py
-2026/07/10  19:45             1,567 README.md
-2026/07/10  19:45                45 test.txt
-               3 File(s)          5,191 bytes
-               2 Dir(s)  123,456,789,012 bytes free
-
-🤖 Agent> history
-📋 操作历史：
-  1. EXECUTE: echo "Hello, Agent!"
-  2. WRITE: test.txt
-  3. READ: test.txt
-  4. EXECUTE: dir
-```
-
-## 📚 学习要点
-
-### 1. 理解Agent的核心循环
-```
-用户输入 -> 解析意图 -> 执行操作 -> 返回结果
-```
-
-### 2. 掌握两个基础能力
-- **命令执行**：与操作系统交互
-- **文件IO**：读写数据和代码
-
-### 3. 为什么这是第一节课？
-教程解释：
-> "把这些核心功能首先是看懂，第二是想明白，设计明白，第三是把它实现出来。把这三步实现完了之后，你就是一个合格的一个在agent领域里面入门的一个大学生。"
-
-## 🔧 代码结构
+## 🎯 项目结构
 
 ```
 minimal_agent/
-├── agent.js      # JavaScript版本（推荐）
-├── agent.py      # Python版本
-└── README.md     # 本说明文件
+├── agent.js                        # v1.0基础版Agent
+├── agent_v2.js                     # v2.0主程序（含Memory）
+├── agent.py                        # Python版本Agent
+├── memory.js                       # Memory系统实现
+├── memory.json                     # 记忆存储文件
+├── plan_mode.js                    # Plan Mode基础版
+├── plan_mode_enhanced.js           # Plan Mode增强版
+├── multi_agent_system.js           # Multi-agent系统
+├── message_queue.js                # 消息队列系统
+├── task_scheduler.js               # 任务调度器
+├── multi_agent_collaboration.js    # Multi-agent协作示例
+├── agent_analysis.md               # Agent分析文档
+├── AGENT_V2_README.md              # v2.0功能说明
+├── README.md                       # 本说明文件
+├── demos/                          # 演示文件
+│   ├── demo_regex.js               # 正则表达式演示
+│   └── demo_language_detection.js  # 语言检测演示
+└── tests/                          # 测试文件
+    ├── test_agent_v2.js            # v2.0测试
+    ├── test_memory.js              # Memory测试
+    ├── test_plan_mode.js           # Plan Mode测试
+    ├── test_enhanced_plan_mode.js  # Plan Mode增强版测试
+    └── test_multi_agent.js         # Multi-agent系统测试
 ```
-
-### MinimalCodingAgent类
-
-```javascript
-class MinimalCodingAgent {
-    executeCommand(command)    // 核心功能1：执行命令
-    readFile(filePath)        // 核心功能2：读取文件
-    writeFile(filePath, content)  // 核心功能2：写入文件
-    getHistory()               // 辅助：获取历史记录
-    clearHistory()             // 辅助：清空历史
-}
-```
-
-## 🎓 下一步学习
-
-完成这个最小agent后，你可以：
-
-### 1. 扩展功能（参考教程）
-- **Plan mode**：让agent制定计划再执行
-- **Memory系统**：实现长期记忆
-- **Multi-agent支持**：多个agent协作
-- **Context auto compression**：自动压缩上下文
-
-### 2. 学习现代Agent
-- 研究Claude Code、Codex等开源实现
-- 理解TUI设计
-- 学习Sandbox环境控制
-
-### 3. 深入Multi-agent
-- 了解正确的使用场景（大规模并行任务）
-- 避免常见陷阱（公司架构模拟）
-
-## 💡 教程提醒
-
-> "你要和看一看和今天最好的这些开源的实现你有哪些差距。"
-
-> "从马车蒸汽汽车开始，你已经实现了第一节课。你要和看一看和今天最好的这些开源的实现你有哪些差距。"
 
 ## 🚀 快速开始
 
-1. 确保安装了Node.js（v14+）或Python（3.6+）
-2. 进入minimal_agent目录
-3. 运行`node agent.js`（推荐）或`python agent.py`
-4. 尝试各种命令，理解agent的工作原理
+### 1. 运行基础Agent
+```bash
+node agent.js
+```
+
+### 2. 运行v2.0 Agent（含Memory）
+```bash
+node agent_v2.js
+```
+
+### 3. 运行Multi-agent系统
+```bash
+# 基础Multi-agent系统
+node multi_agent_system.js
+
+# 完整协作示例
+node multi_agent_collaboration.js
+```
+
+### 4. 运行测试
+```bash
+# 运行所有测试
+node tests/test_agent_v2.js
+node tests/test_memory.js
+node tests/test_plan_mode.js
+node tests/test_enhanced_plan_mode.js
+node tests/test_multi_agent.js
+```
+
+## 📚 学习路径
+
+### Day 1: 基础Agent
+- **agent.js** - 最小Agent实现
+- **功能**: Terminal执行 + 文件IO读写
+- **目标**: 理解Agent的核心循环
+
+### Day 2: Plan Mode
+- **plan_mode.js** - Plan Mode基础版
+- **plan_mode_enhanced.js** - Plan Mode增强版
+- **功能**: 任务规划、用户确认、计划执行
+- **目标**: 让Agent先思考再行动
+
+### Day 3: Memory系统
+- **memory.js** - Memory系统实现
+- **功能**: 长期记忆、上下文管理、记忆检索
+- **目标**: 让Agent能够记住和回忆信息
+
+### Day 4: Multi-agent管理
+- **multi_agent_system.js** - 基础Multi-agent系统
+- **message_queue.js** - 消息队列系统
+- **task_scheduler.js** - 任务调度器
+- **multi_agent_collaboration.js** - 完整协作示例
+- **功能**: 多个Agent协作、任务分配、通信协调
+- **目标**: 理解多Agent系统的架构和实现
+
+## 🎯 核心功能
+
+### 1. Agent基础能力
+```javascript
+// 执行shell命令
+agent.executeCommand("ls -la");
+
+// 读取文件
+agent.readFile("test.txt");
+
+// 写入文件
+agent.writeFile("output.txt", "Hello World");
+```
+
+### 2. Plan Mode
+```javascript
+// 生成执行计划
+const plan = await agent.generatePlan("实现用户登录功能");
+
+// 用户确认计划
+const confirmed = await agent.confirmPlan(plan);
+
+// 按计划执行
+await agent.executePlan(plan);
+```
+
+### 3. Memory系统
+```javascript
+// 存储记忆
+memory.store("user_preference", "dark_mode");
+
+// 检索记忆
+const preference = memory.retrieve("user_preference");
+
+// 获取相关记忆
+const relatedMemories = memory.getRelated("login");
+```
+
+### 4. Multi-agent系统
+```javascript
+// 创建系统
+const system = new MultiAgentSystem();
+
+// 注册Agent
+system.registerAgent(new Coordinator());
+system.registerAgent(new Worker('worker1', ['coding']));
+
+// 创建任务
+system.createTask({
+  id: 'task1',
+  name: '实现登录功能',
+  requiredSkills: ['coding']
+});
+```
+
+## 🧪 测试
+
+### 运行所有测试
+```bash
+# 基础测试
+node tests/test_agent_v2.js
+
+# Memory测试
+node tests/test_memory.js
+
+# Plan Mode测试
+node tests/test_plan_mode.js
+
+# Multi-agent测试
+node tests/test_multi_agent.js
+```
+
+### 测试覆盖
+- ✅ Agent基础功能
+- ✅ Memory存储和检索
+- ✅ Plan Mode生成和执行
+- ✅ Multi-agent通信和协调
+- ✅ 任务调度和分配
+
+## 📖 文档
+
+### 教程文档
+- [教程总览](../docs/tutorials/README.md)
+- [Plan Mode指南](../docs/tutorials/01-plan-mode/)
+- [Memory系统](../docs/tutorials/02-memory-system/)
+- [Multi-agent管理](../docs/tutorials/04-multi-agent/)
+
+### 代码文档
+- [v2.0功能说明](AGENT_V2_README.md)
+- [Agent分析文档](agent_analysis.md)
+
+## 🎓 学习要点
+
+### 1. 理解Agent架构
+- 从简单到复杂的学习路径
+- 每个组件的职责和接口
+- 组件间的协作方式
+
+### 2. 掌握核心概念
+- **Plan Mode**: 任务规划和执行
+- **Memory**: 长期记忆和上下文管理
+- **Multi-agent**: 多Agent协作和协调
+
+### 3. 实践和扩展
+- 运行示例代码理解原理
+- 修改代码尝试不同功能
+- 扩展实现自己的功能
+
+## 🚀 下一步
+
+完成基础学习后，可以：
+
+1. **深入研究开源实现**
+   - Claude Code
+   - Codex Agent
+   - 其他AI Agent框架
+
+2. **扩展功能**
+   - 添加更多Agent类型
+   - 实现分布式Multi-agent系统
+   - 集成机器学习优化
+
+3. **构建实际应用**
+   - 代码生成和审查
+   - 自动化测试
+   - 项目管理
 
 ---
 
-*这是AI Agent学习的第一步。完成它，你就入门了！*
+*这是AI Agent学习项目的代码实现目录。通过实践这些代码，你将掌握构建现代AI Agent系统的核心技能。*

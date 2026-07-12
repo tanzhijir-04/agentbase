@@ -1,0 +1,10 @@
+{
+  "name": "dev-tools",
+  "displayName": "开发工具",
+  "version": "1.0.0",
+  "description": "开发工具插件：JSON格式化和Base64编解码",
+  "author": "AI-Agent-Study",
+  "dependencies": ["text-processing"],
+  "skills": ["json-format", "base64-tool"],
+  "entry": "./skills"
+}
