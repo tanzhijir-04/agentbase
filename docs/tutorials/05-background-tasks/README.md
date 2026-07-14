@@ -1,6 +1,6 @@
 # 05 - Background Tasks（后台任务）
 
-> 处理长时间运行的任务 📅 待学习
+> 处理长时间运行的任务 📅 待学习 ![Status](https://img.shields.io/badge/status-pending-pending)
 
 ## 📚 文档列表
 

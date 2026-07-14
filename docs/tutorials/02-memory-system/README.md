@@ -1,6 +1,6 @@
 # 02 - Memory系统（记忆系统）
 
-> 让Agent记住重要信息 ✅ 已完成
+> 让Agent记住重要信息 ✅ 已完成 ![Status](https://img.shields.io/badge/status-completed-completed)
 
 ## 📚 文档列表
 

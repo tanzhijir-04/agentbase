@@ -1,6 +1,6 @@
 # 04 - Multi-agent管理
 
-> 多个Agent协作与协调 ✅ 已完成
+> 多个Agent协作与协调 ✅ 已完成 ![Status](https://img.shields.io/badge/status-completed-completed)
 
 ## 📚 文档列表
 

@@ -1,6 +1,6 @@
 # 01 - Plan Mode（计划模式）
 
-> 让Agent先思考再行动 ✅ 已完成
+> 让Agent先思考再行动 ✅ 已完成 ![Status](https://img.shields.io/badge/status-completed-completed)
 
 ## 📚 文档列表
 

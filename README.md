@@ -1,211 +1,154 @@
-# 🤖 AI Agent Study
+ # 🤖 AI Agent Study
+ 
+ > 从零开始学习 AI Agent 开发的完整学习资源库。
+ > 覆盖 12 个主题，配有可运行的 JavaScript/Python 代码实现、测试和教程文档。
+ 
+ ---
+ 
+ ## 🚀 极速开始
+ 
+ ```bash
+ # 运行基础 Agent
+ node minimal_agent/agent.js
+ 
+ # 运行全部测试
+ .\minimal_agent\run_tests.ps1
+ 
+ # LangChain 示例（Python）
+ cd minimal_agent
+ python langchain/basic_chain.py
+ ```
+ 
+ ---
+ 
+ ## 📖 学习导航
+ 
+ | 你想做什么 | 去看 |
+ |-----------|------|
+ | 搞清楚先学什么、后学什么 | [教程总览](docs/tutorials/README.md) —— 有依赖关系图 |
+ | 快速搜索某个关键词或文件 | [文档索引](docs/INDEX.md) |
+ | 直接看代码实现 | [minimal_agent/](minimal_agent/README.md) |
+ | 了解如何贡献 | [AGENTS.md](AGENTS.md) |
+ 
+ ---
+ 
+ ## 📁 项目结构
+ 
+ ```
+ AI-Agent-Study/
+ ├── README.md                           # 项目主页（本文件）
+ ├── AGENTS.md                           # 贡献者指南
+ ├── docs/                               # 文档目录
+ │   ├── INDEX.md                        # 文档索引（关键词可搜）
+ │   ├── claude-code-architecture-deep-dive.md   # 架构深度解析
+ │   ├── tutorials/                      # 12 章教程
+ │   │   ├── README.md                   # 总览 + 依赖图 ⭐
+ │   │   ├── 01-plan-mode/               # ✅ Plan Mode（6 篇文档）
+ │   │   ├── 02-memory-system/           # ✅ Memory 系统
+ │   │   ├── 03-context-compression/     # ✅ 上下文压缩
+ │   │   ├── 04-multi-agent/             # ✅ Multi-agent
+ │   │   ├── 05-background-tasks/        # 📅 待学习
+ │   │   ├── 06-plugins/                 # ✅ Skills/Plugins
+ │   │   ├── 07-loop-control/            # ✅ Loop/Workflow
+ │   │   ├── 08-sandbox/                 # 🔄 学习中
+ │   │   ├── 09-mcp/                     # 🔄 学习中
+ │   │   ├── 10-tui/                     # 🔄 学习中
+ │   │   ├── 11-visualization/           # 🔄 学习中
+ │   │   └── 12-langchain-langgraph/     # 🔄 LangChain/LangGraph
+ │   └── git/                            # Git 配置和指南
+ ├── minimal_agent/                      # Agent 代码实现
+ │   ├── agent.js / agent.py             # v1.0（JS + Python）
+ │   ├── agent_v2.js                     # v2.0（含 Memory）
+ │   ├── memory.js / memory.json         # Memory 系统
+ │   ├── plan_mode.js / plan_mode_enhanced.js   # Plan Mode
+ │   ├── multi_agent_system.js           # Multi-agent 系统
+ │   ├── message_queue.js                # 消息队列
+ │   ├── task_scheduler.js               # 任务调度器
+ │   ├── multi_agent_collaboration.js    # 协作示例
+ │   ├── loop_control.js                 # 循环控制
+ │   ├── workflow_engine.js              # DAG 工作流引擎
+ │   ├── skill_system.js / skill_discovery.js   # 技能系统
+ │   ├── plugin_system.js                # 插件系统
+ │   ├── langchain/                      # LangChain/LangGraph 代码
+ │   │   ├── basic_chain.py              # 最简单的 Chain
+ │   │   ├── rag_agent.py                # RAG + Memory
+ │   │   └── langgraph_agent.py          # LangGraph + Human-in-loop
+ │   ├── demos/                          # 可运行演示（6 个）
+ │   ├── tests/                          # 测试（全部通过 ✅）
+ │   ├── run_tests.ps1                   # 一键运行测试
+ │   └── run_multi_agent_demo.ps1        # 一键运行多 Agent 演示
+ ├── skills/                             # 技能配置示例
+ └── plugins/                            # 插件配置示例
+ ```
+ 
+ ## 📊 学习进度
+ 
+ | # | 章节 | 状态 | 核心代码 | 测试覆盖 |
+ |---|------|------|---------|---------|
+ | 01 | Plan Mode | ✅ 完成 | plan_mode.js / plan_mode_enhanced.js | ✅ |
+ | 02 | Memory 系统 | ✅ 完成 | memory.js, agent_v2.js | ✅ |
+ | 03 | Context Compression | ✅ 完成 | demos/demo_context_compression.js | — |
+ | 04 | Multi-agent | ✅ 完成 | multi_agent_system.js, message_queue.js, task_scheduler.js | ✅ |
+ | 05 | Background Tasks | 📅 待学习 | — | — |
+ | 06 | Skills/Plugins | ✅ 完成 | skill_system.js, skill_discovery.js, plugin_system.js | ✅ |
+ | 07 | Loop/Workflow | ✅ 完成 | loop_control.js, workflow_engine.js | ✅ |
+ | 08 | Sandbox | 🔄 学习中 | （编写中） | — |
+ | 09 | MCP | 🔄 学习中 | — | — |
+ | 10 | TUI | 🔄 学习中 | — | — |
+ | 11 | Visualization | 🔄 学习中 | — | — |
+ | 12 | LangChain/LangGraph | 🔄 学习中 | langchain/basic_chain.py, rag_agent.py, langgraph_agent.py | — |
+ 
+ **图例：** ✅ 完成（文档 + 代码 + 测试就绪） · 🔄 学习中 · 📅 待学习
+ 
+ ---
+ 
+ ## 🎯 推荐阅读路线
+ 
+ | 兴趣方向 | 推荐顺序 |
+ |---------|---------|
+ | 🐣 Agent 入门 | 01 Plan Mode → 02 Memory → 07 Loop/Workflow |
+ | 🏗️ 架构进阶 | 03 Context → 04 Multi-agent → 08 Sandbox |
+ | 🔌 扩展开发 | 06 Skills/Plugins → 09 MCP |
+ | 🧠 LLM 框架 | 12 LangChain/LangGraph |
+ | 🖥️ 界面相关 | 10 TUI → 11 Visualization |
+ 
+ 不确定的可以先看 [教程总览](docs/tutorials/README.md) 的依赖关系图。
+ 
+ ## 🛠️ 常用命令
+ 
+ ```bash
+ # 文档
+ cat docs/tutorials/README.md
+ 
+ # 运行代码
+ node minimal_agent/agent.js
+ node minimal_agent/demos/demo_loop_control.js
+ 
+ # 测试
+ .\minimal_agent\run_tests.ps1
+ # 或单文件
+ node minimal_agent/tests/test_agent_v2.js
+ 
+ # Python LangChain
+ cd minimal_agent
+ python langchain/basic_chain.py
+ ```
+ 
+ ## 📚 推荐资源
+ 
+ - [Claude Code 文档](https://docs.anthropic.com/claude-code)
+ - [OpenAI Codex 文档](https://platform.openai.com/docs/codex)
+ - [MCP 协议](https://modelcontextprotocol.io)
+ - [LangChain 文档](https://python.langchain.com/)
+ - [LangGraph 文档](https://langchain-ai.github.io/langgraph/)
+ 
+ ## 🤝 贡献
+ 
+ 欢迎提交 Issue 和 PR！详见 [AGENTS.md](AGENTS.md)。
+ 
+ ---
+ 
+ *更新时间：2026年7月14日*
 
-> 从零开始学习AI Agent开发的完整学习资源库
 
-## 📚 项目简介
 
-本仓库包含AI Agent学习的完整资料，从基础的最小Agent实现到现代Agent特性的深入学习。
-
-## 🎯 学习路径
-
-### 第一阶段：基础入门
-- [x] 手写最小Coding Agent
-- [x] 理解Agent核心循环
-
-### 第二阶段：现代特性学习
-- [x] Plan Mode（计划模式）
-- [x] Memory系统（记忆系统）
-- [x] Context Compression（上下文压缩）
-- [x] Multi-agent管理
-- [ ] Background Tasks（后台任务）
-- [ ] Skills/Plugins系统
-- [ ] Loop/Workflow控制
-- [ ] Sandbox环境控制
-- [ ] MCP配置
-- [ ] TUI优化
-- [ ] 可视化和可观测性
-
-## 📁 项目结构
-
-```
-AI-Agent-Study/
-├── README.md                    # 项目主页
-├── AGENTS.md                    # 贡献指南
-├── docs/                        # 文档目录
-│   ├── INDEX.md                 # 文档索引
-│   ├── tutorials/               # 教程和指南
-│   │   ├── README.md            # 教程总览
-│   │   ├── 01-plan-mode/        # ✅ Plan Mode
-│   │   ├── 02-memory-system/    # ✅ Memory系统
-│   │   ├── 03-context-compression/ # ✅ 上下文压缩
-│   │   ├── 04-multi-agent/      # ✅ Multi-agent管理
-│   │   ├── 05-background-tasks/ # 📅 后台任务
-│   │   ├── 06-plugins/          # 📅 插件系统
-│   │   ├── 07-loop-control/     # 📅 循环控制
-│   │   ├── 08-sandbox/          # 📅 沙箱环境
-│   │   ├── 09-mcp/              # 📅 MCP配置
-│   │   ├── 10-tui/              # 📅 TUI优化
-│   │   └── 11-visualization/    # 📅 可视化
-│   ├── plan-mode/               # Plan Mode 专题
-│   └── git/                     # Git 相关
-├── minimal_agent/               # Agent 代码
-│   ├── agent.js                 # JavaScript版本（推荐）
-│   ├── agent_v2.js              # v2.0主程序（含Memory）
-│   ├── agent.py                 # Python版本
-│   ├── memory.js                # Memory系统
-│   ├── plan_mode.js             # Plan Mode基础版
-│   ├── plan_mode_enhanced.js    # Plan Mode增强版
-│   ├── multi_agent_system.js    # Multi-agent系统
-│   ├── message_queue.js         # 消息队列系统
-│   ├── task_scheduler.js        # 任务调度器
-│   ├── multi_agent_collaboration.js # Multi-agent协作示例
-│   ├── demos/                   # 演示文件
-│   │   └── demo_multi_agent.js  # Multi-agent演示
-│   └── tests/                   # 测试文件
-│       └── test_multi_agent.js  # Multi-agent测试
-└── .vscode/                     # VS Code 配置
-    └── settings.json
-```
-
-## 🚀 快速开始
-
-### 1. 运行最小Agent
-
-```bash
-cd minimal_agent
-node agent.js
-```
-
-### 2. 运行Multi-agent系统
-
-```bash
-cd minimal_agent
-
-# 基础Multi-agent系统
-node multi_agent_system.js
-
-# 完整协作示例
-node multi_agent_collaboration.js
-
-# Multi-agent演示
-node demos/demo_multi_agent.js
-```
-
-### 3. 运行测试
-
-```bash
-cd minimal_agent/tests
-node test_multi_agent.js
-```
-
-### 4. 尝试基本命令
-
-```
-🤖 Agent> exec echo "Hello, Agent!"
-🤖 Agent> write test.txt
-🤖 Agent> read test.txt
-🤖 Agent> plan 帮我读取 README.md 文件
-🤖 Agent> history
-🤖 Agent> quit
-```
-
-## 📖 学习资料
-
-### 文档导航
-- **[文档索引](docs/INDEX.md)** - 完整的文档分类和导航
-- **[教程目录](docs/tutorials/)** - 所有教程和指南
-- **[Plan Mode专题](docs/plan-mode/)** - Plan Mode 完整学习资料
-- **[Git相关](docs/git/)** - Git设置和配置
-
-### 核心文档
-- **[学习路径指南](docs/tutorials/learning_guide.md)** - 完整学习路径
-- **[现代Agent特性](docs/tutorials/modern_agent_features.md)** - 现代Agent特性详解
-- **[一周速成计划](docs/tutorials/one_week_plan.md)** - 一周速成计划
-
-### Multi-agent相关
-- **[Multi-agent管理指南](docs/tutorials/04-multi-agent/multi_agent_management_guide.md)** - 完整教程
-- **[学习总结](docs/tutorials/04-multi-agent/multi_agent_learning_summary.md)** - 学习成果
-
-### 快速入门
-- **[快速开始](docs/tutorials/quick_start.md)** - 快速开始指南
-- **[学习总结](docs/tutorials/summary.md)** - 学习成果总结
-
-### 原始教程
-- **[峰哥AI学习视频](docs/tutorials/lidang_tutorial.md)** - 原始教程文字版（2026年）
-
-## 🎓 学习目标
-
-完成本课程后，你将能够：
-
-1. ✅ 理解Agent的核心工作原理
-2. ✅ 实现基本的Coding Agent
-3. ✅ 掌握现代Agent的关键特性（Plan Mode）
-4. ✅ 理解Multi-agent系统的架构和实现
-5. ✅ 具备进一步深入学习的基础
-
-## 💡 教程关键点
-
-### 关于模型选择
-> "对于大部分的工作而言，买质朴moon shot就是约战面，买阿里，买deep sick，买小米快手mini max基业形成"
-
-**建议**：使用性价比高的国产模型（80-90分模型）
-
-### 关于Multi-agent
-> "multi agent它不太适合于编程问题"
-
-**警告**：
-- ❌ 不要用于并行编程
-- ❌ 不要用于公司架构模拟
-- ✅ 适合大规模并行任务（Map-Reduce）
-
-### 关于学习顺序
-> "从马车蒸汽汽车开始，你已经实现了第一节课。你要和看一看和今天最好的这些开源的实现你有哪些差距。"
-
-**建议**：先完成基础，再研究高级实现
-
-## 🚀 Multi-agent系统特性
-
-### 核心组件
-1. **Agent系统** - 基础Agent实现和管理
-2. **消息队列** - Agent间通信机制
-3. **任务调度器** - 智能任务分配和调度
-4. **协作系统** - 完整的多Agent协作示例
-
-### 架构模式
-- **主从模式** - Master负责协调，Slave执行任务
-- **对等模式** - 所有Agent地位平等，自主协商
-- **层次模式** - 多层级管理结构
-- **黑板模式** - 共享数据空间，Agent自主读写
-
-### 学习成果
-- 理解Multi-agent系统的必要性
-- 掌握不同架构模式的特点
-- 实现基础的消息通信系统
-- 创建智能的任务调度器
-- 构建完整的协作示例
-
-## 📚 推荐资源
-
-### 官方文档
-- [Claude Code文档](https://docs.anthropic.com/claude-code)
-- [OpenAI Codex文档](https://platform.openai.com/docs/codex)
-- [MCP协议文档](https://modelcontextprotocol.io)
-
-### 开源项目
-- [Claude Code](https://github.com/anthropics/claude-code)
-- [Open Interpreter](https://github.com/OpenInterpreter/open-interpreter)
-- [GPT Engineer](https://github.com/gpt-engineer-org/gpt-engineer)
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request！
-
-详见 [AGENTS.md](AGENTS.md) 了解贡献指南。
-
-## 📄 许可证
-
-MIT License
-
----
-
-*记住：这是你的AI Agent学习之旅的第一步。完成它，你就入门了！*

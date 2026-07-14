@@ -1,6 +1,6 @@
  # 06 - Skills/Plugins系统
  
- > 扩展Agent的能力 ✅ 已完成
+ > 扩展Agent的能力 ✅ 已完成 ![Status](https://img.shields.io/badge/status-completed-completed)
  
  ## 📚 文档列表
  

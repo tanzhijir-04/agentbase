@@ -1,6 +1,6 @@
 # 03 - Context Compression（上下文压缩）
 
-> 对话过长时自动压缩 ✅ 学习中
+> 对话过长时自动压缩 ✅ 学习中 ![Status](https://img.shields.io/badge/status-learning-learning)
 
 ## 📚 文档列表
 
