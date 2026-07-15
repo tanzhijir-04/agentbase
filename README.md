@@ -1,140 +1,128 @@
- # 🤖 AI Agent Study
+ <div align="center">
+   <img src="asset/icon.svg" alt="AI-Agent-Study Logo" width="100" height="100">
+   <h1>AI Agent 学习懒人包</h1>
+   12 个主题 · 可运行代码 · 中文文档 · <a href="https://tanzhijir-04.github.io/AI-Agent-Study/">在线知识库</a>
+ </div>
  
- > 从零开始学习 AI Agent 开发的完整学习资源库。
- > 覆盖 12 个主题，配有可运行的 JavaScript/Python 代码实现、测试和教程文档。
+ <div align="center">
+ <a href="https://tanzhijir-04.github.io/AI-Agent-Study/"><img src="https://img.shields.io/badge/在线知识库-访问-blue?style=flat-square"></a>
+ <a href="https://ifdian.net/a/tanz666/plan"><img src="https://img.shields.io/badge/赞助-爱发电-ff69b4?style=flat-square"></a>
+ <a href="https://space.bilibili.com/15586839"><img src="https://img.shields.io/badge/B 站-作者主页-fb7299?style=flat-square"></a>
+ </div>
  
- ---
+ ## 这个仓库是做什么的
  
- ## 🚀 极速开始
+ 做了一个 AI Agent 的学习仓库。
+ 
+ 从最基础的 Agent 循环（就是 AI 自己思考→调用工具→再思考的那个循环）开始，到 Memory、Multi-agent 协作、LangChain/LangGraph、MCP 协议这些更深入的东西，一路用代码推过去。每个主题都有中文文档、直接能跑的 JS/Python 代码、配套测试。
+ 
+ 代码不需要 GPU 或 API Key，装个 Node.js 就能跑。
+ 
+ **谁会用得上：**
+ 
+ | 如果你…… | 可以从这里下手 |
+ |---|---|
+ | 刚接触 Agent，想理解 AI Agent 是什么 | 看 [Plan Mode 文档](docs/tutorials/01-plan-mode/)，然后跟着跑代码 |
+ | 写代码但没碰过 LLM 相关的开发 | [minimal_agent/](minimal_agent/) 下面的代码都是 Node.js 直接跑的 |
+ | 主要用 Python | 翻 [LangChain/LangGraph 专题](docs/tutorials/12-langchain-langgraph/) 和 [Python 示例](minimal_agent/langchain/) |
+ | 想拿这个当素材讲课 | [在线知识库](https://tanzhijir-04.github.io/AI-Agent-Study/) 直接打开就能当课件 |
+ 
+ ## 在线知识库怎么用
+ 
+ [https://tanzhijir-04.github.io/AI-Agent-Study/](https://tanzhijir-04.github.io/AI-Agent-Study/)
+ 
+ 仓库里的文档被渲染成了网页，在浏览器里切章节看就行，不用克隆仓库。每一章都包含概念讲解和可复制的代码块。
+ 
+ 我个人最推荐的方式：打开网页读文档理解概念，然后 git clone 到本地跑代码、改参数。代码都在 minimal_agent/ 下面，跑测试用 `.\minimal_agent\run_tests.ps1`。
+ 
+ ## 学习路径
+ 
+ 这些路线是按实际依赖排的，箭头指向的方向需要先学前面的内容。
+ 
+ **入门 — 把 Agent 跑起来**
+ 
+ ```
+ Plan Mode → Memory 系统 → Loop/Workflow
+ ```
+ 
+ **架构 — 理解 Agent 内部**
+ 
+ ```
+ 上下文压缩 → Multi-agent → Sandbox → MCP
+ ```
+ 
+ **扩展开发 — 给 Agent 加能力**
+ 
+ ```
+ Skills/Plugins → Sandbox → MCP
+ ```
+ 
+ **LLM 框架 — 用 Python 写正经应用**
+ 
+ ```
+ Plan Mode → Memory → Multi-agent → Loop/Workflow → LangChain/LangGraph
+ ```
+ 
+ 拿不准从哪开始的，先看[教程总览文档](docs/tutorials/README.md)，里面有一张依赖关系图。
+ 
+ ## 极速开始
  
  ```bash
- # 运行基础 Agent
+ git clone https://github.com/tanzhijir-04/AI-Agent-Study.git
+ cd AI-Agent-Study
+ 
  node minimal_agent/agent.js
  
- # 运行全部测试
+ # Windows
  .\minimal_agent\run_tests.ps1
  
- # LangChain 示例（Python）
+ # Python
  cd minimal_agent
  python langchain/basic_chain.py
  ```
  
- ---
- 
- ## 📖 学习导航
- 
- | 你想做什么 | 去看 |
- |-----------|------|
- | 搞清楚先学什么、后学什么 | [教程总览](docs/tutorials/README.md) —— 有依赖关系图 |
- | 快速搜索某个关键词或文件 | [文档索引](docs/INDEX.md) |
- | 直接看代码实现 | [minimal_agent/](minimal_agent/README.md) |
- | 了解如何贡献 | [AGENTS.md](AGENTS.md) |
- 
- ---
- 
- ## 📁 项目结构
+ ## 项目骨架
  
  ```
  AI-Agent-Study/
- ├── README.md                           # 项目主页（本文件）
- ├── AGENTS.md                           # 贡献者指南
- ├── docs/                               # 文档目录
- │   ├── INDEX.md                        # 文档索引（关键词可搜）
- │   ├── claude-code-architecture-deep-dive.md   # 架构深度解析
- │   ├── tutorials/                      # 12 章教程
- │   │   ├── README.md                   # 总览 + 依赖图 ⭐
- │   │   ├── 01-plan-mode/               # ✅ Plan Mode（6 篇文档）
- │   │   ├── 02-memory-system/           # ✅ Memory 系统
- │   │   ├── 03-context-compression/     # ✅ 上下文压缩
- │   │   ├── 04-multi-agent/             # ✅ Multi-agent
- │   │   ├── 05-background-tasks/        # 📅 待学习
- │   │   ├── 06-plugins/                 # ✅ Skills/Plugins
- │   │   ├── 07-loop-control/            # ✅ Loop/Workflow
- │   │   ├── 08-sandbox/                 # 🔄 学习中
- │   │   ├── 09-mcp/                     # 🔄 学习中
- │   │   ├── 10-tui/                     # 🔄 学习中
- │   │   ├── 11-visualization/           # 🔄 学习中
- │   │   └── 12-langchain-langgraph/     # 🔄 LangChain/LangGraph
- │   └── git/                            # Git 配置和指南
- ├── minimal_agent/                      # Agent 代码实现
- │   ├── agent.js / agent.py             # v1.0（JS + Python）
- │   ├── agent_v2.js                     # v2.0（含 Memory）
- │   ├── memory.js / memory.json         # Memory 系统
- │   ├── plan_mode.js / plan_mode_enhanced.js   # Plan Mode
- │   ├── multi_agent_system.js           # Multi-agent 系统
- │   ├── message_queue.js                # 消息队列
- │   ├── task_scheduler.js               # 任务调度器
- │   ├── multi_agent_collaboration.js    # 协作示例
- │   ├── loop_control.js                 # 循环控制
- │   ├── workflow_engine.js              # DAG 工作流引擎
- │   ├── skill_system.js / skill_discovery.js   # 技能系统
- │   ├── plugin_system.js                # 插件系统
- │   ├── langchain/                      # LangChain/LangGraph 代码
- │   │   ├── basic_chain.py              # 最简单的 Chain
- │   │   ├── rag_agent.py                # RAG + Memory
- │   │   └── langgraph_agent.py          # LangGraph + Human-in-loop
- │   ├── demos/                          # 可运行演示（6 个）
- │   ├── tests/                          # 测试（全部通过 ✅）
- │   ├── run_tests.ps1                   # 一键运行测试
- │   └── run_multi_agent_demo.ps1        # 一键运行多 Agent 演示
- ├── skills/                             # 技能配置示例
- └── plugins/                            # 插件配置示例
+ ├── docs/
+ │   ├── INDEX.md            # 文档索引
+ │   └── tutorials/          # 12 章教程
+ ├── minimal_agent/
+ │   ├── agent.js            # 基础 Agent
+ │   ├── agent_v2.js         # 带 Memory 的 v2
+ │   ├── plan_mode.js        # Plan Mode
+ │   ├── multi_agent_system.js
+ │   ├── loop_control.js + workflow_engine.js
+ │   ├── langchain/          # Python 示例
+ │   ├── demos/
+ │   └── tests/
+ └── asset/
+     └── icon.svg
  ```
  
- ## 📊 学习进度
+ 完整结构在 [AGENTS.md](AGENTS.md)。
  
- | # | 章节 | 状态 | 核心代码 | 测试覆盖 |
- |---|------|------|---------|---------|
- | 01 | Plan Mode | ✅ 完成 | plan_mode.js / plan_mode_enhanced.js | ✅ |
- | 02 | Memory 系统 | ✅ 完成 | memory.js, agent_v2.js | ✅ |
- | 03 | Context Compression | ✅ 完成 | demos/demo_context_compression.js | — |
- | 04 | Multi-agent | ✅ 完成 | multi_agent_system.js, message_queue.js, task_scheduler.js | ✅ |
- | 05 | Background Tasks | 📅 待学习 | — | — |
- | 06 | Skills/Plugins | ✅ 完成 | skill_system.js, skill_discovery.js, plugin_system.js | ✅ |
- | 07 | Loop/Workflow | ✅ 完成 | loop_control.js, workflow_engine.js | ✅ |
- | 08 | Sandbox | 🔄 学习中 | （编写中） | — |
- | 09 | MCP | 🔄 学习中 | — | — |
- | 10 | TUI | 🔄 学习中 | — | — |
- | 11 | Visualization | 🔄 学习中 | — | — |
- | 12 | LangChain/LangGraph | 🔄 学习中 | langchain/basic_chain.py, rag_agent.py, langgraph_agent.py | — |
+ ## 学习进度
  
- **图例：** ✅ 完成（文档 + 代码 + 测试就绪） · 🔄 学习中 · 📅 待学习
+ | 章节 | 状态 | 核心代码 | 测试 |
+ |---|---|---|---|
+ | Plan Mode | ✅ | plan_mode.js 两个版本 | ✅ |
+ | Memory 系统 | ✅ | memory.js, agent_v2.js | ✅ |
+ | 上下文压缩 | ✅ | demos/demo_context_compression.js | — |
+ | Multi-agent | ✅ | multi_agent_system.js 等 | ✅ |
+ | 后台任务 | 📅 | — | — |
+ | Skills/Plugins | ✅ | skill_system.js, plugin_system.js | ✅ |
+ | Loop/Workflow | ✅ | loop_control.js, workflow_engine.js | ✅ |
+ | Sandbox | 🔄 编写中 | — | — |
+ | MCP | 🔄 编写中 | — | — |
+ | TUI | 🔄 编写中 | — | — |
+ | 可视化 | 🔄 编写中 | — | — |
+ | LangChain/LangGraph | 🔄 编写中 | langchain/ 下三个示例 | — |
  
- ---
+ ✅ 已完成 · 🔄 编写中 · 📅 待开始
  
- ## 🎯 推荐阅读路线
- 
- | 兴趣方向 | 推荐顺序 |
- |---------|---------|
- | 🐣 Agent 入门 | 01 Plan Mode → 02 Memory → 07 Loop/Workflow |
- | 🏗️ 架构进阶 | 03 Context → 04 Multi-agent → 08 Sandbox |
- | 🔌 扩展开发 | 06 Skills/Plugins → 09 MCP |
- | 🧠 LLM 框架 | 12 LangChain/LangGraph |
- | 🖥️ 界面相关 | 10 TUI → 11 Visualization |
- 
- 不确定的可以先看 [教程总览](docs/tutorials/README.md) 的依赖关系图。
- 
- ## 🛠️ 常用命令
- 
- ```bash
- # 文档
- cat docs/tutorials/README.md
- 
- # 运行代码
- node minimal_agent/agent.js
- node minimal_agent/demos/demo_loop_control.js
- 
- # 测试
- .\minimal_agent\run_tests.ps1
- # 或单文件
- node minimal_agent/tests/test_agent_v2.js
- 
- # Python LangChain
- cd minimal_agent
- python langchain/basic_chain.py
- ```
- 
- ## 📚 推荐资源
+ ## 推荐资源
  
  - [Claude Code 文档](https://docs.anthropic.com/claude-code)
  - [OpenAI Codex 文档](https://platform.openai.com/docs/codex)
@@ -142,13 +130,13 @@
  - [LangChain 文档](https://python.langchain.com/)
  - [LangGraph 文档](https://langchain-ai.github.io/langgraph/)
  
- ## 🤝 贡献
- 
- 欢迎提交 Issue 和 PR！详见 [AGENTS.md](AGENTS.md)。
- 
  ---
  
- *更新时间：2026年7月14日*
-
-
-
+ <div align="center">
+ 
+ 有问题开 Issue，想一起写发 PR。<br>
+ <a href="https://space.bilibili.com/15586839">B站主页</a> · <a href="https://ifdian.net/a/tanz666/plan">爱发电赞助</a> · <a href="https://tanzhijir-04.github.io/AI-Agent-Study/">在线知识库</a>
+ 
+ </div>
+ 
+ *2026年7月15日*
