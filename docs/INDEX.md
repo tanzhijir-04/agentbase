@@ -1,92 +1,118 @@
- # 📚 文档索引
- 
- > 按章节和关键词快速定位所有文档。共 14 章（+ 低代码专题）。
- 
- ---
- 
- ## 📁 章节总览
- 
- | # | 章节 | 状态 | 前置依赖 | 文件清单 |
- |---|------|------|----------|---------|
- | 01 | Plan Mode | ✅ 完成 | — | README.md, analysis.md, complete.md, faq.md, implementation_guide.md, practice.md |
- | 02 | Memory 系统 | ✅ 完成 | — | README.md |
- | 03 | Context Compression | ✅ 完成 | 02-Memory | README.md, context_compression.md |
- | 04 | Multi-agent | ✅ 完成 | 01, 07 | README.md, multi_agent_management_guide.md, COMPLETION_REPORT.md, multi_agent_learning_summary.md |
- | 05 | Background Tasks | 📅 待学习 | 04 | README.md（占位） |
- | 06 | Skills/Plugins | ✅ 完成 | — | README.md, plugins_skills_system.md |
- | 07 | Loop/Workflow | ✅ 完成 | — | README.md, loop_control_guide.md |
- | 08 | Sandbox | 🔄 学习中 | 06, 07 | README.md, sandbox_guide.md |
- | 09 | MCP | 🔄 学习中 | 08 | README.md（概览已写，待深入） |
- | 10 | TUI | 🔄 学习中 | 07 | README.md（占位） |
- | 11 | Visualization | 🔄 学习中 | 03, 07 | README.md（占位） |
- | 12 | LangChain/LangGraph | 🔄 学习中 | 01, 02, 04, 07 | README.md, 01-05（5 篇子文档） |
- | 13 | LowCode Agent | ✅ 完成 | — | README.md, 01-07（7 篇文档） |
- | 14 | Harness 执行框架 | ✅ 完成 | 01, 02, 07 | README.md, 01-05（5 篇文档） |
- 
- ---
- 
- ## 🎯 关键词索引
- 
- | 关键词 | 所在章节 | 对应代码文件 |
- |--------|---------|-------------|
- | Agent 循环 / Harness / 执行引擎 | 01, 14 | agent.js, agent_v2.js |
- | 短期记忆 / 长期记忆 / 信息提取 | 02 Memory | memory.js, agent_v2.js |
- | Token 压缩 / 摘要 / 剪枝 | 03 Context Compression | demos/demo_context_compression.js |
- | 主从模式 / 消息队列 / 任务调度 | 04 Multi-agent | multi_agent_system.js, message_queue.js, task_scheduler.js, multi_agent_collaboration.js |
- | Skills 注册 / 发现 / Plugin 加载 | 06 Skills/Plugins | skill_system.js, skill_discovery.js, plugin_system.js |
- | 循环控制器 / 断路器 / 速率限制 / 状态机 / DAG 工作流 | 07 Loop/Workflow | loop_control.js, workflow_engine.js |
- | 进程隔离 / 文件系统隔离 / 权限沙箱 | 08 Sandbox | (编写中) |
- | MCP 协议 / 工具注册 | 09 MCP | (待编写) |
- | TUI 终端界面 | 10 TUI | (待编写) |
- | 可视化 / Tracing | 11 Visualization | (待编写) |
- | Chain / RAG / Memory / Tool / LangGraph / Human-in-loop | 12 LangChain/LangGraph | langchain/basic_chain.py, rag_agent.py, langgraph_agent.py |
- | think-act-observe / 工具调度 / 执行框架 | 14 Harness | agent_v2.js, 迷你 Harness 示例 |
- 
- ---
- 
- ## 📖 推荐阅读路线
- 
- ### 入门
- 1. [教程总览](tutorials/README.md) — 先看概览和依赖图
- 2. [Plan Mode](tutorials/01-plan-mode/README.md) — 理解 Agent 核心思维
- 3. [Memory 系统](tutorials/02-memory-system/README.md) — 让 Agent 有记忆
- 
- ### 进阶
- 1. [Multi-agent 管理指南](tutorials/04-multi-agent/multi_agent_management_guide.md)
- 2. [Loop/Workflow 控制指南](tutorials/07-loop-control/loop_control_guide.md)
- 3. [Skills/Plugins 系统](tutorials/06-plugins/plugins_skills_system.md)
- 4. [Harness 执行框架](tutorials/14-harness/01-what-is-harness.md) — 理解 Agent 的引擎层
- 
- ### LangChain/LangGraph 专题
- 1. [总览](tutorials/12-langchain-langgraph/README.md) — Chain vs Graph 对比
- 2. [LangChain 入门](tutorials/12-langchain-langgraph/01-langchain-intro.md)
- 3. [LangChain 核心组件](tutorials/12-langchain-langgraph/02-langchain-core.md)
- 4. [LangGraph 入门](tutorials/12-langchain-langgraph/03-langgraph-intro.md)
- 5. [LangGraph 核心](tutorials/12-langchain-langgraph/04-langgraph-core.md)
- 6. [完整实践](tutorials/12-langchain-langgraph/05-practice.md) — 可运行代码
- 
- ---
- 
- ## 🚀 快速开始
- 
- ```bash
- # 1. 查看教程总览
- cat docs/tutorials/README.md
- 
- # 2. 运行 JavaScript 代码/演示
- node minimal_agent/agent.js
- node minimal_agent/demos/demo_loop_control.js
- 
- # 3. 运行全部测试
- .\minimal_agent\run_tests.ps1
- 
- # 4. Python LangChain 示例（需要 venv）
- cd minimal_agent
- python langchain/basic_chain.py
- python langchain/rag_agent.py
- python langchain/langgraph_agent.py
- ```
- 
- ---
- 
- *索引更新时间：2026年7月15日*
+# 📚 AI Agent 学习知识库 — 文档索引
+
+> 六个阶段、24 章、5 个附录。按阶段关键词快速定位所有文档。
+
+---
+
+## 🗂️ 章节目录
+
+### 第一阶段：基础篇 · 跑起来
+
+| # | 章节 | 状态 | 前置 | 文件 |
+|---|------|------|------|------|
+| 01 | LLM 基础与函数调用 | ✅ 已有 | — | README.md |
+| 02 | Agent 核心执行循环：ReAct 模式 | ✅ 已有 | 01 | README.md, react_loop_guide.md（从原 loop_control 拆分） |
+| 03 | Memory 记忆系统 | ✅ 已有 | 02 | README.md, day2_memory_system.md |
+| 04 | Plan Mode：规划与推理 | ✅ 已有 | 02, 03 | README.md, analysis.md, complete.md, faq.md, implementation_guide.md, practice.md |
+
+### 第二阶段：架构篇 · 拆引擎
+
+| # | 章节 | 状态 | 前置 | 文件 |
+|---|------|------|------|------|
+| 05 | 上下文生命周期管理 | ✅ 已有 | 03 | README.md, context_compression.md |
+| 06 | 外部知识接入：RAG 检索系统 | ✅ 已有 | 05 | README.md |
+| 07 | Harness 执行框架与范式选型 | ✅ 已整合 | 02, 05 | README.md, 01-05 (5 篇), loop_control_guide.md, 对应代码 |
+| 08 | Multi-agent 多智能体系统 | ✅ 已精简 | 04, 07 | README.md, multi_agent_management_guide.md |
+
+### 第三阶段：扩展篇 · 变强
+
+| # | 章节 | 状态 | 前置 | 文件 |
+|---|------|------|------|------|
+| 09 | Skills/Plugins 工具系统 | ✅ 已有 | 07 | README.md, plugins_skills_system.md |
+| 10 | MCP 模型上下文协议 | ✅ 已有 | 09 | README.md |
+| 11 | 安全边界与风险治理 | ✅ 已有 | 09 | README.md, sandbox_guide.md |
+
+### 第四阶段：工程篇 · 做成产品
+
+| # | 章节 | 状态 | 前置 | 文件 |
+|---|------|------|------|------|
+| 12 | 后台任务与异步执行 | ✅ 已有 | 08 | README.md |
+| 13 | Agent 评估与测试策略 | ✅ 已有 | 02-11 | README.md |
+| 14 | 可观测性、故障排查与降级兜底 | ✅ 已有 | 07 | README.md |
+| 15 | 性能与成本优化 | ✅ 已有 | 07 | README.md |
+| 16 | 生产环境部署 | ✅ 已有 | 14, 15 | README.md |
+
+### 第五阶段：实践篇 · 融会贯通
+
+| # | 章节 | 状态 | 前置 | 文件 |
+|---|------|------|------|------|
+| 17 | LangChain / LangGraph 框架对照 | ✅ 已有 | 02-08 | README.md, 01-05 (5 篇) |
+| 18 | 低代码 Agent 平台 | ✅ 已有 | — | README.md, 01-07 (7 篇) |
+| 19 | 典型业务场景 Agent 设计 | 📅 新建 | 17 | README.md |
+| 20 | 综合实践：构建一个生产级 Agent | 📅 新建 | 01-19 | README.md |
+
+### 第六阶段：面试冲刺篇
+
+| # | 章节 | 状态 |
+|---|------|------|
+| 21 | 高频面试题汇总与标准答案 | 📅 新建 |
+| 22 | 场景设计题万能答题方法论 | 📅 新建 |
+| 23 | 简历优化与自我介绍模板 | 📅 新建 |
+| 24 | 手写代码题备战 | 📅 新建 |
+
+### 附录
+
+| # | 章节 | 状态 | 文件 |
+|---|------|------|------|
+| A | Claude Code 架构分析系列 | ✅ 已有 | README.md, 01-overview.md (14 篇系列) |
+| B | TUI 终端界面实现 | ⏳ 待补充 | — |
+| C | 可视化调试与扩展 | ⏳ 待补充 | — |
+| D | 项目配置与 AGENTS.md 规范 | ⏳ 待补充 | — |
+| E | 常见问题与排错手册 | ✅ 已有 | README.md |
+
+---
+
+## 🔑 关键词索引
+
+| 关键词 | 章节 |
+|--------|------|
+| Agent 循环 / ReAct | 02, 07 |
+| 函数调用 / Tool Call | 01, 02 |
+| 记忆 / Memory | 03 |
+| Token / 上下文 | 05, 15 |
+| RAG / 知识检索 | 06 |
+| Harness / 执行引擎 | 07 |
+| Plan Mode / 规划 | 04 |
+| Multi-agent / 多 Agent | 08 |
+| Skills / Plugins / 扩展 | 09 |
+| MCP 协议 | 10 |
+| 安全 / 沙箱 / Prompt 注入 | 11 |
+| 后台任务 / 异步 | 12 |
+| 评估 / 测试 / 幻觉 | 13 |
+| 可观测性 / Tracing / 故障 | 14 |
+| 性能 / 成本 / Token 优化 | 15 |
+| 部署 / 服务化 | 16 |
+| LangChain / LangGraph | 17 |
+| 低代码 / Coze / Dify | 18 |
+| 场景设计 | 19 |
+| 综合实践 / 项目 | 20 |
+| 面试冲刺 / 简历 | 21-24 |
+| Claude Code 架构 | A |
+
+---
+
+## 🚀 快速开始
+
+`ash
+# 跑通第一个 Agent
+node minimal_agent/agent.js
+
+# 运行全部测试
+.\minimal_agent\run_tests.ps1
+
+# Python LangChain 示例
+cd minimal_agent
+python langchain/basic_chain.py
+`
+
+*索引更新时间：2026年7月18日*

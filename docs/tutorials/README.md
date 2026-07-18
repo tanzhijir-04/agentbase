@@ -1,102 +1,135 @@
- # 📖 教程总览
- 
- > 从零开始的 AI Agent 学习系列。共 14 章，按依赖关系排列。
- 
- ---
- 
- ## 🗺️ 依赖关系图
- 
- 先看这张图，再决定从哪一章开始：
- 
- ```mermaid
- flowchart LR
-     01[01 Plan Mode] --> 04[04 Multi-agent]
-     02[02 Memory] --> 03[03 Context Compression]
-     07[07 Loop/Workflow] --> 04
-     06[06 Skills/Plugins] --> 08[08 Sandbox]
-     08 --> 09[09 MCP]
-     07 --> 10[10 TUI]
-     03 --> 11[11 Visualization]
-     07 --> 11
-     01 & 02 & 04 & 07 --> 12[12 LangChain/LangGraph]
-     01 & 02 & 07 --> 14[14 Harness]
- 
-     01 -->|推荐入口| 02
-     02 --> 07
- ```
- 
- **阅读建议：** 箭头指向表示前置依赖。例如 04 Multi-agent 依赖 01 Plan Mode 和 07 Loop/Workflow，建议先学完它们再开始 04。
- 
- ---
- 
- ## 学习路径
- 
- | # | 章节 | 状态 | 前置依赖 | 核心代码 |
- |---|------|------|----------|---------|
- | 01 | [Plan Mode](01-plan-mode/) | ✅ 完成 | — | plan_mode.js / plan_mode_enhanced.js |
- | 02 | [Memory 系统](02-memory-system/) | ✅ 完成 | — | memory.js, agent_v2.js |
- | 03 | [上下文压缩](03-context-compression/) | ✅ 完成 | 02-Memory | demos/demo_context_compression.js |
- | 04 | [Multi-agent](04-multi-agent/) | ✅ 完成 | 01, 07 | multi_agent_system.js, message_queue.js, task_scheduler.js |
- | 05 | [后台任务](05-background-tasks/) | 📅 待学习 | 04 | — |
- | 06 | [Skills/Plugins](06-plugins/) | ✅ 完成 | — | skill_system.js, skill_discovery.js, plugin_system.js |
- | 07 | [Loop/Workflow 控制](07-loop-control/) | ✅ 完成 | — | loop_control.js, workflow_engine.js |
- | 08 | [沙箱环境](08-sandbox/) | 🔄 学习中 | 06, 07 | sandbox_guide.md（编写中） |
- | 09 | [MCP 配置](09-mcp/) | 🔄 学习中 | 08 | — |
- | 10 | [TUI 优化](10-tui/) | 🔄 学习中 | 07 | — |
- | 11 | [可视化](11-visualization/) | 🔄 学习中 | 03, 07 | — |
- | 12 | [LangChain/LangGraph](12-langchain-langgraph/) | 🔄 学习中 | 01, 02, 04, 07 | langchain/basic_chain.py, rag_agent.py, langgraph_agent.py |
- | 14 | [Harness 执行框架](14-harness/) | ✅ 完成 | 01, 02, 07 | agent_v2.js（Harness 实例） |
- 
- ---
- 
- ## 快速导航
- 
- ### 按兴趣方向
- 
- | 方向 | 推荐路线 |
- |------|---------|
- | 🐣 刚接触 Agent | 01 → 02 → 07 |
- | 🏗️ 想深入架构 | 03 → 04 → 08 → 09 |
- | 🔌 想扩展技能 | 06 → 08 → 09 |
- | 🧠 对 LLM 框架感兴趣 | 01 → 02 → 04 → 07 → 12 |
- | 🖥️ 关注终端和可视化 | 07 → 10 → 11 |
- | ⚙️ 想理解 Agent 执行引擎 | 01 → 02 → 07 → 14 |
- 
- ### 按 Agent 特性
- 
- | 特性 | 相关章节 |
- |------|---------|
- | 规划 / 推理 | 01, 07, 14 |
- | 记忆 / 上下文 | 02, 03 |
- | 多 Agent 协作 | 04, 05 |
- | 技能扩展 | 06 |
- | 安全与协议 | 08, 09 |
- | 界面 | 10, 11 |
- | LLM 框架 | 12 |
- | 执行框架 | 14 |
- 
- ### 最新章节
- 
- - **14-Harness 执行框架** — 拆解 Agent 的"引擎层"：think-act-observe 循环、工具调度、上下文管理、安全边界，以及 Codex CLI 中 Harness 的具体实现。配 5 篇文档 + 可手写运行的迷你 Harness 代码示例。
- - **13-LowCode Agent** — 低代码 Agent 平台（Coze、Dify）的对比和实用指南。
- - **12-LangChain/LangGraph** — 从零理解 Chain、Memory、RAG、Tool、Agent 机制，以及 LangGraph 图状态管理与 Human-in-loop。
- - **08-Sandbox** — 进程隔离、文件系统隔离、权限沙箱的完整概念指南。
- 
- ---
- 
- ## 运行代码示例
- 
- ```bash
- # JavaScript 示例（Node.js）
- node minimal_agent/agent.js
- node minimal_agent/demos/demo_loop_control.js
- .\minimal_agent\run_tests.ps1
- 
- # Python 示例
- cd minimal_agent
- python langchain/basic_chain.py
- python langchain/rag_agent.py
- python langchain/langgraph_agent.py
- ```
- 
- *更新时间：2026年7月15日*
+# 📖 AI Agent 开发学习路径
+
+> 从零到面试，A 到 Z 的 Agent 开发学习指南。共 24 章 + 5 个附录，按六个阶段递进。
+
+---
+
+## 🗺️ 学习路径总览
+
+`
+第一阶段：基础篇 · 跑起来（第 01-04 章）
+  "写个 Agent 先看看长什么样"
+  
+第二阶段：架构篇 · 拆引擎（第 05-08 章）
+  "理解 Agent 内部是怎么工作的"
+
+第三阶段：扩展篇 · 变强（第 09-11 章）
+  "让 Agent 能做更多、更安全的事"
+
+第四阶段：工程篇 · 做成产品（第 12-16 章）
+  "从玩具 Demo 到生产可用"
+
+第五阶段：实践篇 · 融会贯通（第 17-20 章）
+  "框架对照 + 场景实战 + 完整项目"
+
+第六阶段：面试冲刺篇（第 21-24 章）
+  "学完直接去面试"
+`
+
+---
+
+## 第一阶段：基础篇 · 跑起来
+
+核心目标：用最快速度让读者理解 Agent 是什么，并写出第一个可运行的 Agent。
+
+| # | 章节 | 状态 | 核心代码 | 前置 |
+|---|------|------|---------|------|
+| 01 | [LLM 基础与函数调用](01-llm-foundation/) | ✅ 已有 | llm_client.js, structured_output.js | — |
+| 02 | [Agent 核心执行循环：ReAct 模式](02-react-loop/) | ✅ 已有 | eact_loop.js（原 gent.js） | 01 |
+| 03 | [Memory 记忆系统](03-memory-system/) | ✅ 已有 | memory.js | 02 |
+| 04 | [Plan Mode：规划与推理](04-plan-mode/) | ✅ 已有 | plan_mode.js, plan_mode_enhanced.js | 02, 03 |
+
+## 第二阶段：架构篇 · 拆引擎
+
+核心目标：从写死的 Demo 升级为可扩展、可维护的模块化架构。
+
+| # | 章节 | 状态 | 核心代码 | 前置 |
+|---|------|------|---------|------|
+| 05 | [上下文生命周期管理](05-context-lifecycle/) | ✅ 已有 | demo_context_compression.js | 03 |
+| 06 | [外部知识接入：RAG 检索系统](06-rag-system/) | ✅ 已有 | ag_agent.js, ector_store.js | 05 |
+| 07 | [Harness 执行框架与范式选型](07-harness/) | ✅ 已有 | harness.js, loop_control.js, workflow_engine.js | 02, 05 |
+| 08 | [Multi-agent 多智能体系统](08-multi-agent/) | ✅ 已有 | multi_agent_system.js | 04, 07 |
+
+## 第三阶段：扩展篇 · 变强
+
+核心目标：拓展 Agent 的能力边界，从能做事的到能做更多、更安全的事。
+
+| # | 章节 | 状态 | 核心代码 | 前置 |
+|---|------|------|---------|------|
+| 09 | [Skills/Plugins 工具系统](09-skills-plugins/) | ✅ 已有 | skill_system.js, plugin_system.js | 07 |
+| 10 | [MCP 模型上下文协议](10-mcp/) | ✅ 已有 | mcp_client.js | 09 |
+| 11 | [安全边界与风险治理](11-security/) | ✅ 已有 | sandbox_executor.js | 09 |
+
+## 第四阶段：工程篇 · 做成产品
+
+核心目标：从玩具 Demo 到生产可用的服务。
+
+| # | 章节 | 状态 | 核心代码 | 前置 |
+|---|------|------|---------|------|
+| 12 | [后台任务与异步执行](12-background-tasks/) | ✅ 已有 | 	ask_scheduler.js, message_queue.js | 08 |
+| 13 | [Agent 评估与测试策略](13-evaluation-testing/) | ✅ 已有 | gent_eval.js, 	ests/ | 02-11 |
+| 14 | [可观测性、故障排查与降级兜底](14-observability/) | ✅ 已有 | 	racer.js | 07 |
+| 15 | [性能与成本优化](15-cost-optimization/) | ✅ 已有 | 	oken_optimizer.js | 07 |
+| 16 | [生产环境部署](16-deployment/) | ✅ 已有 | gent_server.js | 14, 15 |
+
+## 第五阶段：实践篇 · 融会贯通
+
+核心目标：整合所有知识，完成完整项目落地。
+
+| # | 章节 | 状态 | 核心代码 | 前置 |
+|---|------|------|---------|------|
+| 17 | [LangChain / LangGraph 框架对照](17-langchain-langgraph/) | ✅ 已有 | langchain/ 系列 | 02-08 |
+| 18 | [低代码 Agent 平台](18-lowcode-agent/) | ✅ 已有 | Coze / Dify 实践 | — |
+| 19 | [典型业务场景 Agent 设计](19-scenario-design/) | 📅 新建 | — | 17 |
+| 20 | [综合实践：构建一个生产级 Agent](20-capstone-project/) | 📅 新建 | ull_agent.js | 01-19 |
+
+## 第六阶段：面试冲刺篇
+
+核心目标：临门一脚，集中梳理考点，学完可直接投递面试。
+
+| # | 章节 | 状态 |
+|---|------|------|
+| 21 | [高频面试题汇总与标准答案](21-interview-qa/) | 📅 新建 |
+| 22 | [场景设计题万能答题方法论](22-scenario-method/) | 📅 新建 |
+| 23 | [简历优化与自我介绍模板](23-resume-guide/) | 📅 新建 |
+| 24 | [手写代码题备战](24-whiteboard-coding/) | 📅 新建 |
+
+## 附录
+
+| # | 章节 | 状态 | 说明 |
+|---|------|------|------|
+| A | [Claude Code 架构分析系列](a-claude-arch/) | ✅ 已有 | 进阶选读，建议完成前四阶段后阅读 |
+| B | [TUI 终端界面实现](b-tui/) | ⏳ 待补充 | — |
+| C | [可视化调试与扩展](c-visualization/) | ⏳ 待补充 | — |
+| D | [项目配置与 AGENTS.md 规范](d-project-config/) | ⏳ 待补充 | — |
+| E | [常见问题与排错手册](e-troubleshooting/) | ✅ 已有 | 持续更新 |
+
+---
+
+## 推荐阅读路线
+
+| 目标 | 推荐路线 |
+|------|---------|
+| 🐣 快速上手 Agent | 01 → 02 → 03 → 07 |
+| 🏗️ 深入架构设计 | 02 → 05 → 07 → 08 |
+| 🔌 工具扩展开发 | 02 → 07 → 09 → 10 |
+| 🧠 LLM 框架实战 | 02 → 03 → 05 → 07 → 17 |
+| ⚙️ 生产落地 | 02 → 07 → 09 → 13 → 14 → 15 → 16 |
+| 🎯 面试冲刺 | 01 → 02 → 07 → 08 → 17 → 19 → 21-24 |
+
+---
+
+## 运行代码
+
+`ash
+# JavaScript 示例
+node minimal_agent/react_loop.js
+node minimal_agent/demos/demo_loop_control.js
+.\minimal_agent\run_tests.ps1
+
+# Python 示例
+cd minimal_agent
+python langchain/basic_chain.py
+`
+
+*最后更新：2026年7月18日*

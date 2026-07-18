@@ -361,44 +361,138 @@ a{color:var(--accent);text-decoration:none}
 
 <script>
 
-const I18N={zh:{s:'搜索文档…',se:'未找到',l:'加载中…',p:'← 上一篇',n:'下一篇 →',h:'首页',e:'加载失败',w1:'教程总览',w1d:'查看全部学习路径',w2:'文档索引',w2d:'关键词快速定位',w3:'代码实现',w3d:'完整源码浏览',w4:'贡献指南',w4d:'项目规范和参与方式',sb:'从零到一，轻松上手 AI Agent'},zhTW:{s:'搜尋文檔…',se:'未找到',l:'載入中…',p:'← 上一篇',n:'下一篇 →',h:'首頁',e:'載入失敗',w1:'教程總覽',w1d:'查看全部學習路徑',w2:'文檔索引',w2d:'關鍵詞快速定位',w3:'代碼實現',w3d:'完整源碼瀏覽',w4:'貢獻指南',w4d:'項目規範和參與方式',sb:'從零到一，輕鬆上手 AI Agent'},en:{s:'Search…',se:'Not found',l:'Loading…',p:'← Previous',n:'Next →',h:'Home',e:'Failed',w1:'Tutorials',w1d:'View all chapters',w2:'Index',w2d:'Quick search',w3:'Source Code',w3d:'Browse source',w4:'Contributing',w4d:'Project guidelines',sb:'From Zero to One, Master AI Agent'}};
+const I18N={zh:{s:'搜索文档…',se:'未找到',l:'加载中…',p:'← 上一篇',n:'下一篇 →',h:'首页',e:'加载失败',w1:'教程总览',w1d:'6 阶段 24 章，从入门到面试',w2:'文档索引',w2d:'关键词快速定位',w3:'代码实现',w3d:'完整源码浏览',w4:'贡献指南',w4d:'项目规范和参与方式',sb:'24 个主题 · 6 个阶段 · 可运行代码 · 55+ 张配图'},zhTW:{s:'搜尋文檔…',se:'未找到',l:'載入中…',p:'← 上一篇',n:'下一篇 →',h:'首頁',e:'載入失敗',w1:'教程總覽',w1d:'6 階段 24 章，從入門到面試',w2:'文檔索引',w2d:'關鍵詞快速定位',w3:'代碼實現',w3d:'完整源碼瀏覽',w4:'貢獻指南',w4d:'項目規範和參與方式',sb:'24 個主題 · 6 個階段 · 可執行程式碼 · 55+ 張配圖'},en:{s:'Search…',se:'Not found',l:'Loading…',p:'← Previous',n:'Next →',h:'Home',e:'Failed',w1:'Tutorials',w1d:'6 phases, 24 chapters, A to Z',w2:'Index',w2d:'Quick search',w3:'Source Code',w3d:'Browse source',w4:'Contributing',w4d:'Project guidelines',sb:'24 Topics · 6 Phases · Runnable Code · 55+ Illustrations'}};
 
-const NAV=[{t:'📖 教程',o:true,i:[
 
+const NAV=[
+
+{t:'第一阶段 · 基础篇',o:true,i:[
 {n:'教程总览',p:'docs/tutorials/README.md'},
+{n:'01 LLM 基础与函数调用',c:[
+{n:'总览',p:'docs/tutorials/01-llm-foundation/README.md'},
+{n:'Token 基础',p:'docs/tutorials/01-llm-foundation/01-token-basics.md'},
+{n:'函数调用',p:'docs/tutorials/01-llm-foundation/02-function-calling.md'},
+{n:'LLM 客户端',p:'docs/tutorials/01-llm-foundation/03-llm-client.md'}
+]},
+{n:'02 ReAct 执行循环',c:[
+{n:'总览',p:'docs/tutorials/02-react-loop/README.md'},
+{n:'ReAct 循环入门',p:'docs/tutorials/02-react-loop/01-react-loop-basics.md'},
+{n:'循环控制进阶',p:'docs/tutorials/02-react-loop/loop_control_guide.md'}
+]},
+{n:'03 Memory 记忆系统',c:[
+{n:'总览',p:'docs/tutorials/03-memory-system/README.md'},
+{n:'完整实现',p:'docs/tutorials/03-memory-system/day2_memory_system.md'}
+]},
+{n:'04 Plan Mode',c:[
+{n:'总览',p:'docs/tutorials/04-plan-mode/README.md'},
+{n:'深度分析',p:'docs/tutorials/04-plan-mode/analysis.md'},
+{n:'完整指南',p:'docs/tutorials/04-plan-mode/complete.md'},
+{n:'FAQ',p:'docs/tutorials/04-plan-mode/faq.md'},
+{n:'实现指南',p:'docs/tutorials/04-plan-mode/implementation_guide.md'},
+{n:'实践练习',p:'docs/tutorials/04-plan-mode/practice.md'}
+]}
+]},
 
-{n:'01 Plan Mode',p:'docs/tutorials/01-plan-mode/README.md',c:[{n:'概述',p:'docs/tutorials/01-plan-mode/README.md'},{n:'深度分析',p:'docs/tutorials/01-plan-mode/analysis.md'},{n:'完整指南',p:'docs/tutorials/01-plan-mode/complete.md'},{n:'FAQ',p:'docs/tutorials/01-plan-mode/faq.md'},{n:'实现指南',p:'docs/tutorials/01-plan-mode/implementation_guide.md'},{n:'实践练习',p:'docs/tutorials/01-plan-mode/practice.md'}]},
+{t:'第二阶段 · 架构篇',o:true,i:[
+{n:'05 上下文生命周期',c:[
+{n:'总览',p:'docs/tutorials/05-context-lifecycle/README.md'},
+{n:'上下文压缩',p:'docs/tutorials/05-context-lifecycle/context_compression.md'}
+]},
+{n:'06 RAG 检索系统',c:[
+{n:'总览',p:'docs/tutorials/06-rag-system/README.md'},
+{n:'RAG 基础',p:'docs/tutorials/06-rag-system/01-rag-basics.md'},
+{n:'Agent 集成',p:'docs/tutorials/06-rag-system/02-rag-agent-integration.md'}
+]},
+{n:'07 Harness 执行框架',c:[
+{n:'总览',p:'docs/tutorials/07-harness/README.md'},
+{n:'什么是 Harness',p:'docs/tutorials/07-harness/01-what-is-harness.md'},
+{n:'工作原理',p:'docs/tutorials/07-harness/02-how-harness-works.md'},
+{n:'核心设计',p:'docs/tutorials/07-harness/03-core-design.md'},
+{n:'Codex CLI 中的应用',p:'docs/tutorials/07-harness/04-harness-in-codex.md'},
+{n:'手写迷你 Harness',p:'docs/tutorials/07-harness/05-build-your-own.md'}
+]},
+{n:'08 Multi-agent 系统',c:[
+{n:'总览',p:'docs/tutorials/08-multi-agent/README.md'},
+{n:'管理指南',p:'docs/tutorials/08-multi-agent/multi_agent_management_guide.md'}
+]}
+]},
 
-{n:'02 Memory 系统',p:'docs/tutorials/02-memory-system/README.md',c:[{n:'概述',p:'docs/tutorials/02-memory-system/README.md'},{n:'完整实现指南',p:'docs/tutorials/02-memory-system/day2_memory_system.md'}]},
+{t:'第三阶段 · 扩展篇',o:true,i:[
+{n:'09 Skills/Plugins',c:[
+{n:'总览',p:'docs/tutorials/09-skills-plugins/README.md'},
+{n:'系统指南',p:'docs/tutorials/09-skills-plugins/plugins_skills_system.md'}
+]},
+{n:'10 MCP 协议',c:[
+{n:'总览',p:'docs/tutorials/10-mcp/README.md'},
+{n:'MCP 概述',p:'docs/tutorials/10-mcp/01-mcp-overview.md'}
+]},
+{n:'11 安全与沙箱',c:[
+{n:'总览',p:'docs/tutorials/11-security/README.md'},
+{n:'沙箱指南',p:'docs/tutorials/11-security/sandbox_guide.md'}
+]}
+]},
 
-{n:'03 Context Compression',p:'docs/tutorials/03-context-compression/README.md',c:[{n:'概述',p:'docs/tutorials/03-context-compression/README.md'},{n:'上下文压缩指南',p:'docs/tutorials/03-context-compression/context_compression.md'}]},
+{t:'第四阶段 · 工程篇',o:true,i:[
+{n:'12 后台任务',p:'docs/tutorials/12-background-tasks/README.md'},
+{n:'13 评估与测试',p:'docs/tutorials/13-evaluation-testing/README.md'},
+{n:'14 可观测性',p:'docs/tutorials/14-observability/README.md'},
+{n:'15 成本优化',p:'docs/tutorials/15-cost-optimization/README.md'},
+{n:'16 生产部署',p:'docs/tutorials/16-deployment/README.md'}
+]},
 
-{n:'04 Multi-agent',p:'docs/tutorials/04-multi-agent/README.md',c:[{n:'概述',p:'docs/tutorials/04-multi-agent/README.md'},{n:'管理指南',p:'docs/tutorials/04-multi-agent/multi_agent_management_guide.md'},{n:'完成报告',p:'docs/tutorials/04-multi-agent/COMPLETION_REPORT.md'},{n:'学习总结',p:'docs/tutorials/04-multi-agent/multi_agent_learning_summary.md'}]},
+{t:'第五阶段 · 实践篇',o:true,i:[
+{n:'17 LangChain/LangGraph',c:[
+{n:'总览',p:'docs/tutorials/17-langchain-langgraph/README.md'},
+{n:'LangChain 入门',p:'docs/tutorials/17-langchain-langgraph/01-langchain-intro.md'},
+{n:'核心组件',p:'docs/tutorials/17-langchain-langgraph/02-langchain-core.md'},
+{n:'LangGraph 入门',p:'docs/tutorials/17-langchain-langgraph/03-langgraph-intro.md'},
+{n:'LangGraph 核心',p:'docs/tutorials/17-langchain-langgraph/04-langgraph-core.md'},
+{n:'综合实践',p:'docs/tutorials/17-langchain-langgraph/05-practice.md'}
+]},
+{n:'18 低代码平台',c:[
+{n:'总览',p:'docs/tutorials/18-lowcode-agent/README.md'},
+{n:'什么是低代码',p:'docs/tutorials/18-lowcode-agent/01-what-is-lowcode.md'},
+{n:'Coze 入门',p:'docs/tutorials/18-lowcode-agent/02-coze-bot.md'},
+{n:'Coze 进阶',p:'docs/tutorials/18-lowcode-agent/03-coze-advanced.md'},
+{n:'Dify 入门',p:'docs/tutorials/18-lowcode-agent/04-dify-intro.md'},
+{n:'Dify 进阶',p:'docs/tutorials/18-lowcode-agent/05-dify-advanced.md'},
+{n:'对比与选型',p:'docs/tutorials/18-lowcode-agent/06-coze-vs-dify.md'},
+{n:'实战项目',p:'docs/tutorials/18-lowcode-agent/07-practice.md'}
+]},
+{n:'19 场景设计',p:'docs/tutorials/19-scenario-design/README.md'},
+{n:'20 综合实践',p:'docs/tutorials/20-capstone-project/README.md'}
+]},
 
-{n:'05 Background Tasks',p:'docs/tutorials/05-background-tasks/README.md',s:'p'},
+{t:'第六阶段 · 面试冲刺',o:true,i:[
+{n:'21 高频面试题',p:'docs/tutorials/21-interview-qa/README.md'},
+{n:'22 场景答题方法论',p:'docs/tutorials/22-scenario-method/README.md'},
+{n:'23 简历优化',p:'docs/tutorials/23-resume-guide/README.md'},
+{n:'24 手写代码备战',p:'docs/tutorials/24-whiteboard-coding/README.md'}
+]},
 
-{n:'06 Skills/Plugins',p:'docs/tutorials/06-plugins/README.md',c:[{n:'概述',p:'docs/tutorials/06-plugins/README.md'},{n:'Plugins & Skills 系统',p:'docs/tutorials/06-plugins/plugins_skills_system.md'}]},
+{t:'📖 附录',o:true,i:[
+{n:'A Claude Code 架构',c:[
+{n:'系列总览',p:'docs/tutorials/a-claude-arch/README.md'},
+{n:'01 源码架构',p:'docs/tutorials/a-claude-arch/01-overview.md'},
+{n:'02 Tool 系统',p:'docs/tutorials/a-claude-arch/02-tool-system.md'},
+{n:'03 QueryEngine',p:'docs/tutorials/a-claude-arch/03-query-engine.md'},
+{n:'04 Plan Mode',p:'docs/tutorials/a-claude-arch/04-plan-mode.md'},
+{n:'05 Memory 系统',p:'docs/tutorials/a-claude-arch/05-memory.md'},
+{n:'06 上下文压缩',p:'docs/tutorials/a-claude-arch/06-context-compression.md'},
+{n:'07 Multi-Agent',p:'docs/tutorials/a-claude-arch/07-multi-agent.md'},
+{n:'08 Skills/Plugins',p:'docs/tutorials/a-claude-arch/08-skills-plugins.md'},
+{n:'09 MCP 集成',p:'docs/tutorials/a-claude-arch/09-mcp.md'},
+{n:'10 后台任务',p:'docs/tutorials/a-claude-arch/10-background-tasks.md'},
+{n:'11 Sandbox',p:'docs/tutorials/a-claude-arch/11-sandbox.md'},
+{n:'12 TUI 引擎',p:'docs/tutorials/a-claude-arch/12-tui.md'},
+{n:'13 可观测性',p:'docs/tutorials/a-claude-arch/13-observability.md'},
+{n:'14 设计哲学',p:'docs/tutorials/a-claude-arch/14-philosophy.md'}
+]},
+{n:'D 项目配置',p:'docs/tutorials/d-project-config/AGENTS.md'},
+{n:'E 排错手册',p:'docs/tutorials/e-troubleshooting/README.md'}
+]}
 
-{n:'07 Loop/Workflow',p:'docs/tutorials/07-loop-control/README.md',c:[{n:'概述',p:'docs/tutorials/07-loop-control/README.md'},{n:'控制指南',p:'docs/tutorials/07-loop-control/loop_control_guide.md'}]},
-
-{n:'08 Sandbox',p:'docs/tutorials/08-sandbox/README.md',c:[{n:'概述',p:'docs/tutorials/08-sandbox/README.md'},{n:'沙箱指南',p:'docs/tutorials/08-sandbox/sandbox_guide.md'}]},
-
-{n:'09 MCP',p:'docs/tutorials/09-mcp/README.md'},
-
-{n:'10 TUI',p:'docs/tutorials/10-tui/README.md'},
-
-{n:'11 Visualization',p:'docs/tutorials/11-visualization/README.md'},
-
-{n:'12 LangChain/LangGraph',p:'docs/tutorials/12-langchain-langgraph/README.md',c:[{n:'总览',p:'docs/tutorials/12-langchain-langgraph/README.md'},{n:'01 LangChain 入门',p:'docs/tutorials/12-langchain-langgraph/01-langchain-intro.md'},{n:'02 LangChain 核心组件',p:'docs/tutorials/12-langchain-langgraph/02-langchain-core.md'},{n:'03 LangGraph 入门',p:'docs/tutorials/12-langchain-langgraph/03-langgraph-intro.md'},{n:'04 LangGraph 核心',p:'docs/tutorials/12-langchain-langgraph/04-langgraph-core.md'},{n:'05 完整实践',p:'docs/tutorials/12-langchain-langgraph/05-practice.md'}]},
-{n:'14 Harness 执行框架',p:'docs/tutorials/14-harness/README.md',c:[{n:'总览',p:'docs/tutorials/14-harness/README.md'},{n:'01 什么是 Harness',p:'docs/tutorials/14-harness/01-what-is-harness.md'},{n:'02 工作原理',p:'docs/tutorials/14-harness/02-how-harness-works.md'},{n:'03 核心设计',p:'docs/tutorials/14-harness/03-core-design.md'},{n:'04 Codex CLI 中的 Harness',p:'docs/tutorials/14-harness/04-harness-in-codex.md'},{n:'05 手写迷你 Harness',p:'docs/tutorials/14-harness/05-build-your-own.md'}]}]},
-
-
-
-
-
-,
-{t:"💬 低代码平台",o:true,i:[{n:"总览",p:"docs/tutorials/13-lowcode-agent/README.md"},{n:"01 什么是低代码平台",p:"docs/tutorials/13-lowcode-agent/01-what-is-lowcode.md"},{n:"02 Coze 入门",p:"docs/tutorials/13-lowcode-agent/02-coze-bot.md"},{n:"03 Coze 进阶",p:"docs/tutorials/13-lowcode-agent/03-coze-advanced.md"},{n:"04 Dify 入门",p:"docs/tutorials/13-lowcode-agent/04-dify-intro.md"},{n:"05 Dify 进阶",p:"docs/tutorials/13-lowcode-agent/05-dify-advanced.md"},{n:"06 对比与选型",p:"docs/tutorials/13-lowcode-agent/06-coze-vs-dify.md"},{n:"07 实战项目",p:"docs/tutorials/13-lowcode-agent/07-practice.md"}]},
-{t:"🧠 Claude Code 架构",o:true,i:[{n:"系列总览",p:"docs/claude-code-architecture/README.md"},{n:"01 源码架构深度复盘",p:"docs/claude-code-architecture/01-overview.md"},{n:"02 Tool 系统",p:"docs/claude-code-architecture/02-tool-system.md"},{n:"03 QueryEngine",p:"docs/claude-code-architecture/03-query-engine.md"},{n:"04 Plan Mode",p:"docs/claude-code-architecture/04-plan-mode.md"},{n:"05 Memory 系统",p:"docs/claude-code-architecture/05-memory.md"},{n:"06 上下文压缩",p:"docs/claude-code-architecture/06-context-compression.md"},{n:"07 Multi-Agent",p:"docs/claude-code-architecture/07-multi-agent.md"},{n:"08 Skills/Plugins",p:"docs/claude-code-architecture/08-skills-plugins.md"},{n:"09 MCP 集成",p:"docs/claude-code-architecture/09-mcp.md"},{n:"10 后台任务",p:"docs/claude-code-architecture/10-background-tasks.md"},{n:"11 Sandbox",p:"docs/claude-code-architecture/11-sandbox.md"},{n:"12 TUI 引擎",p:"docs/claude-code-architecture/12-tui.md"},{n:"13 可观测性",p:"docs/claude-code-architecture/13-observability.md"},{n:"14 设计哲学",p:"docs/claude-code-architecture/14-philosophy.md"}]}];
+];
 
 let lang='zh',theme='light',curPath=null,cache={},sIdx=null;
 

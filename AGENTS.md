@@ -97,12 +97,21 @@ AI-Agent-Study/
 - [x] Day 2 (7月11日): Plan Mode学习和实现
 - [x] Day 3 (7月12日): Memory系统 + 语言识别
 - [x] Day 4 (7月12日): Multi-agent管理 + 上下文压缩
+- [x] Day 5 (7月12日): Background Tasks 概念
 - [x] Day 6 (7月12日): Skills/Plugins系统
 - [x] Day 7 (7月14日): Loop/Workflow控制 + 综合实践
- - [x] Day 8 (7月14日): LangChain/LangGraph 框架学习 + 文档 + 代码实现 + Sandbox 概念学习
- - [x] Day 11 (7月15日): Harness 执行框架概念研究 + 5 篇文档
+- [x] Day 8 (7月14日): LangChain/LangGraph 框架学习 + 文档 + 代码实现 + Sandbox 概念学习
+- [x] Day 9 (7月15日): Sandbox 安全 + MCP 协议 + 低代码 Agent 平台
+- [x] Day 10 (7月15日): LangGraph 生产化实践 + Coze/Dify 对比
+- [x] Day 11 (7月15日): Harness 执行框架 + 5 篇文档
+- [x] Day 12 (7月18日): 全部章节配图完成（55+ 张）、知识库网页更新
 
 ### 进行中
+
+- [ ] Day 13: 面试冲刺篇（21-24 章编写）
+- [ ] Day 14: 附录 B TUI / C 可视化 / D 项目配置
+
+## 进行中
 
 - [ ] Day 5: Background Tasks
 - [ ] Day 9: Sandbox + MCP + TUI + 可视化 (深入编写中)
